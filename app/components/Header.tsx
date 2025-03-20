@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function Header() {
   return (
-    <header className="sticky top-0 z-50 w-full border-b border border-[rgba(255,255,255,0.15)] bg-[#0a0a0a] bg-opacity-90 backdrop-blur-md">
+    <header className="sticky top-0 z-50 w-full border-b border-light bg-dark bg-opacity-90 backdrop-blur-md">
       <div className="container mx-auto flex items-center justify-between p-4">
         <Link href="/" className="flex items-center gap-2 group">
           <Image 
@@ -20,16 +20,16 @@ export default function Header() {
         </Link>
         
         <nav className="hidden md:flex items-center gap-8">
-          <Link href="/features" className="text-[#f8f8f8] opacity-80 hover:text-[#3dd5c8] transition-colors font-medium">
+          <Link href="/features" className="text-white opacity-80 hover:text-teal transition-colors font-medium">
             Features
           </Link>
-          <Link href="/pricing" className="text-[#f8f8f8] opacity-80 hover:text-[#e94e87] transition-colors font-medium">
+          <Link href="/pricing" className="text-white opacity-80 hover:text-pink transition-colors font-medium">
             Pricing
           </Link>
-          <Link href="/about" className="text-[#f8f8f8] opacity-80 hover:text-[#f5a76c] transition-colors font-medium">
+          <Link href="/about" className="text-white opacity-80 hover:text-orange transition-colors font-medium">
             About
           </Link>
-          <Link href="/blog" className="text-[#f8f8f8] opacity-80 hover:text-[#3dd5c8] transition-colors font-medium">
+          <Link href="/blog" className="text-white opacity-80 hover:text-teal transition-colors font-medium">
             Blog
           </Link>
         </nav>
@@ -37,13 +37,13 @@ export default function Header() {
         <div className="flex items-center gap-4">
           <Link 
             href="/login" 
-            className="hidden sm:block text-[#f8f8f8] opacity-80 hover:text-[#e94e87] transition-colors font-medium"
+            className="hidden sm:block text-white opacity-80 hover:text-pink transition-colors font-medium"
           >
             Log in
           </Link>
           <Link 
             href="/signup" 
-            className="rounded-full bg-primary-gradient text-white px-5 py-2.5 text-sm font-medium hover:opacity-90 transition-opacity shadow-colored hover:shadow-lg"
+            className="btn btn-primary text-sm px-5 py-2.5"
           >
             Get Started
           </Link>

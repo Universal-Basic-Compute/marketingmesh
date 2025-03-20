@@ -8,26 +8,26 @@ export default function Home() {
       <section className="py-24 md:py-32 overflow-hidden relative bg-gradient">
         <div className="container mx-auto px-4 text-center relative">
           {/* Background decorative elements */}
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-primary/5 rounded-full blur-3xl -z-10"></div>
-          <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-secondary/5 rounded-full blur-3xl -z-10"></div>
-          <div className="absolute top-1/3 left-1/4 w-[300px] h-[300px] bg-accent/5 rounded-full blur-3xl -z-10"></div>
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-teal bg-opacity-5 rounded-full blur-3xl -z-10"></div>
+          <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-pink bg-opacity-5 rounded-full blur-3xl -z-10"></div>
+          <div className="absolute top-1/3 left-1/4 w-[300px] h-[300px] bg-orange bg-opacity-5 rounded-full blur-3xl -z-10"></div>
           
           <h1 className="text-4xl md:text-6xl font-bold mb-6 max-w-4xl mx-auto leading-tight animate-fade-in">
             A Next-Generation <span className="gradient-text">AI Swarm</span> for Business Growth
           </h1>
-          <p className="text-xl md:text-2xl text-foreground/70 mb-12 max-w-2xl mx-auto animate-fade-in" style={{animationDelay: "0.1s"}}>
+          <p className="text-xl md:text-2xl text-white opacity-70 mb-12 max-w-2xl mx-auto animate-fade-in" style={{animationDelay: "0.1s"}}>
             Analyze websites, create virtual focus groups, develop targeted marketing campaigns, and execute them across platforms—all with minimal human intervention.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in" style={{animationDelay: "0.2s"}}>
             <Link
               href="/signup"
-              className="rounded-full bg-primary-gradient text-white px-8 py-3.5 text-lg font-medium hover:opacity-90 transition-opacity shadow-colored hover:shadow-xl hover:-translate-y-0.5 transform"
+              className="btn btn-primary"
             >
               Get Started
             </Link>
             <Link
               href="/demo"
-              className="rounded-full border border-white/20 text-white px-8 py-3.5 text-lg font-medium hover:bg-white/5 transition-colors"
+              className="btn btn-secondary"
             >
               Request Demo
             </Link>
@@ -125,31 +125,31 @@ export default function Home() {
             <div className="hidden md:block absolute top-24 left-1/2 -translate-x-1/2 h-0.5 w-[calc(66.6%-100px)] bg-gradient-to-r from-primary via-secondary to-accent"></div>
             
             <div className="text-center relative">
-              <div className="bg-[#3dd5c8] h-16 w-16 rounded-full flex items-center justify-center mx-auto mb-8 glow-primary z-10 relative">
+              <div className="bg-teal h-16 w-16 rounded-full flex items-center justify-center mx-auto mb-8 glow-teal z-10 relative">
                 <span className="text-2xl font-bold text-white">1</span>
               </div>
               <h3 className="text-2xl font-semibold mb-4 text-white">Analyze</h3>
-              <p className="text-muted-foreground">
+              <p className="text-muted">
                 We analyze your website, content, and competitors to understand your business context and goals.
               </p>
             </div>
             
             <div className="text-center relative">
-              <div className="bg-[#e94e87] h-16 w-16 rounded-full flex items-center justify-center mx-auto mb-8 glow-secondary z-10 relative">
+              <div className="bg-pink h-16 w-16 rounded-full flex items-center justify-center mx-auto mb-8 glow-pink z-10 relative">
                 <span className="text-2xl font-bold text-white">2</span>
               </div>
               <h3 className="text-2xl font-semibold mb-4 text-white">Create</h3>
-              <p className="text-muted-foreground">
+              <p className="text-muted">
                 Our AI swarm develops targeted marketing campaigns with cohesive messaging across multiple formats.
               </p>
             </div>
             
             <div className="text-center relative">
-              <div className="bg-[#f5a76c] h-16 w-16 rounded-full flex items-center justify-center mx-auto mb-8 glow-accent z-10 relative">
+              <div className="bg-orange h-16 w-16 rounded-full flex items-center justify-center mx-auto mb-8 glow-orange z-10 relative">
                 <span className="text-2xl font-bold text-white">3</span>
               </div>
               <h3 className="text-2xl font-semibold mb-4 text-white">Execute</h3>
-              <p className="text-muted-foreground">
+              <p className="text-muted">
                 We deploy your campaigns across selected channels and continuously optimize for the best results.
               </p>
             </div>
@@ -159,7 +159,7 @@ export default function Home() {
           <div className="mt-20 text-center">
             <Link
               href="/demo"
-              className="inline-flex items-center gap-2 text-primary font-medium hover:underline"
+              className="inline-flex items-center gap-2 text-teal font-medium hover:underline"
             >
               <span>See how it works in action</span>
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -214,7 +214,7 @@ export default function Home() {
               
               <Link
                 href="/signup?plan=basic"
-                className="block w-full text-center rounded-full border border-[hsl(var(--border))] px-6 py-3 font-medium hover:bg-secondary transition-colors"
+                className="block w-full text-center rounded-full border border-light px-6 py-3 font-medium hover:bg-pink hover:text-white transition-colors"
               >
                 Get Started
               </Link>
@@ -257,7 +257,7 @@ export default function Home() {
               
               <Link
                 href="/signup?plan=growth"
-                className="block w-full text-center rounded-full bg-primary text-primary-foreground px-6 py-3 font-medium hover:bg-primary/90 transition-colors shadow-md hover:shadow-lg hover:shadow-primary/20"
+                className="block w-full text-center rounded-full bg-teal text-white px-6 py-3 font-medium hover:opacity-90 transition-colors shadow-md hover:shadow-lg"
               >
                 Get Started
               </Link>
@@ -297,7 +297,7 @@ export default function Home() {
               
               <Link
                 href="/contact"
-                className="block w-full text-center rounded-full border border-[hsl(var(--border))] px-6 py-3 font-medium hover:bg-secondary transition-colors"
+                className="block w-full text-center rounded-full border border-light px-6 py-3 font-medium hover:bg-pink hover:text-white transition-colors"
               >
                 Contact Sales
               </Link>
@@ -396,13 +396,13 @@ export default function Home() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/signup"
-              className="rounded-full bg-white text-background px-8 py-3.5 text-lg font-medium hover:bg-white/90 transition-colors shadow-lg hover:shadow-xl hover:-translate-y-0.5 transform"
+              className="btn btn-primary bg-white text-dark"
             >
               Get Started Today
             </Link>
             <Link
               href="/demo"
-              className="rounded-full border border-white/30 text-white px-8 py-3.5 text-lg font-medium hover:bg-white/10 transition-colors"
+              className="btn btn-secondary"
             >
               Request Demo
             </Link>

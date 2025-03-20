@@ -2,61 +2,70 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  :root {
-    /* Dark theme as default */
-    --background: 0 0% 6%; /* Near black */
-    --foreground: 0 0% 98%; /* Off-white */
-    
-    /* Logo-inspired gradient colors */
-    --primary: 174 70% 45%; /* Teal/turquoise from logo */
-    --primary-foreground: 0 0% 100%;
-    --secondary: 350 80% 60%; /* Pink from logo */
-    --secondary-foreground: 0 0% 100%;
-    --accent: 25 90% 70%; /* Orange/coral from logo */
-    --accent-foreground: 0 0% 100%;
-    
-    /* Supporting colors */
-    --muted: 210 40% 12%;
-    --muted-foreground: 210 40% 80%;
-    --card: 0 0% 9%; /* Slightly lighter than background */
-    --card-foreground: 0 0% 98%;
-    --border: 0 0% 15%;
-    --input: 0 0% 15%;
-    --ring: 174 70% 45%;
-    --radius: 0.5rem;
-  }
-}
-
+/* Base styles */
 body {
   background-color: #0a0a0a;
   color: #f8f8f8;
-  font-feature-settings: "rlig" 1, "calt" 1;
+  font-family: var(--font-geist-sans);
 }
 
-/* Smooth scrolling */
-html {
-  scroll-behavior: smooth;
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  color: #ffffff;
 }
 
-/* Better focus styles */
-*:focus-visible {
-  outline: 2px solid hsl(var(--ring));
-  outline-offset: 2px;
+p {
+  color: #f8f8f8;
 }
 
-/* Improved link transitions */
-a {
-  transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+/* Background colors */
+.bg-dark {
+  background-color: #0a0a0a;
 }
 
-/* Improved button transitions */
-button, 
-.button {
-  transition: all 0.2s ease;
+.bg-card {
+  background-color: #111111;
 }
 
-/* Gradient text utility - using logo colors */
+.bg-muted {
+  background-color: #1a2234;
+}
+
+/* Text colors */
+.text-white {
+  color: #ffffff;
+}
+
+.text-muted {
+  color: #a0aec0;
+}
+
+/* Brand colors */
+.text-teal {
+  color: #3dd5c8;
+}
+
+.text-pink {
+  color: #e94e87;
+}
+
+.text-orange {
+  color: #f5a76c;
+}
+
+.bg-teal {
+  background-color: #3dd5c8;
+}
+
+.bg-pink {
+  background-color: #e94e87;
+}
+
+.bg-orange {
+  background-color: #f5a76c;
+}
+
+/* Gradient text */
 .gradient-text {
   background: linear-gradient(90deg, #3dd5c8 0%, #e94e87 50%, #f5a76c 100%);
   -webkit-background-clip: text;
@@ -64,51 +73,25 @@ button,
   background-clip: text;
 }
 
-/* Subtle animations */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.animate-fade-in {
-  animation: fadeIn 0.5s ease-in-out;
-}
-
-/* Background gradient */
+/* Gradient backgrounds */
 .bg-gradient {
   background: linear-gradient(135deg, rgba(61, 213, 200, 0.1) 0%, rgba(233, 78, 135, 0.1) 50%, rgba(245, 167, 108, 0.1) 100%);
 }
 
-/* Add more vibrant sections */
 .bg-primary-gradient {
   background: linear-gradient(135deg, #3dd5c8 0%, #e94e87 50%, #f5a76c 100%);
 }
 
-.bg-secondary-light {
-  background-color: #1a2234;
-}
-
-.text-gradient {
-  background: linear-gradient(90deg, #3dd5c8 0%, #e94e87 50%, #f5a76c 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.shadow-colored {
-  box-shadow: 0 4px 14px 0 rgba(61, 213, 200, 0.3);
-}
-
-/* Logo-inspired glow effects */
-.glow-primary {
+/* Glow effects */
+.glow-teal {
   box-shadow: 0 0 15px 2px rgba(61, 213, 200, 0.5);
 }
 
-.glow-secondary {
+.glow-pink {
   box-shadow: 0 0 15px 2px rgba(233, 78, 135, 0.5);
 }
 
-.glow-accent {
+.glow-orange {
   box-shadow: 0 0 15px 2px rgba(245, 167, 108, 0.5);
 }
 
@@ -122,56 +105,58 @@ button,
   box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3), 0 0 10px 0 rgba(61, 213, 200, 0.3);
 }
 
-/* Fix for background and text colors */
-.bg-background {
-  background-color: #0a0a0a;
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-.bg-card {
-  background-color: #111111;
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-in-out;
 }
 
-.bg-muted {
-  background-color: #1a2234;
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  font-weight: 500;
+  transition: all 0.2s;
 }
 
-.text-foreground {
-  color: #f8f8f8;
+.btn-primary {
+  background: linear-gradient(135deg, #3dd5c8 0%, #e94e87 50%, #f5a76c 100%);
+  color: white;
+  padding: 0.875rem 2rem;
+  font-size: 1.125rem;
+  box-shadow: 0 4px 14px 0 rgba(61, 213, 200, 0.3);
 }
 
-.text-muted-foreground {
-  color: #a0aec0;
+.btn-primary:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px 0 rgba(61, 213, 200, 0.4);
 }
 
-.border-border {
+.btn-secondary {
+  background-color: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  padding: 0.875rem 2rem;
+  font-size: 1.125rem;
+}
+
+.btn-secondary:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Borders */
+.border-light {
   border-color: rgba(255, 255, 255, 0.15);
 }
 
-.bg-primary {
-  background-color: #3dd5c8;
-}
-
-.bg-secondary {
-  background-color: #e94e87;
-}
-
-.bg-accent {
-  background-color: #f5a76c;
-}
-
-.text-primary {
-  color: #3dd5c8;
-}
-
-.text-secondary {
-  color: #e94e87;
-}
-
-.text-accent {
-  color: #f5a76c;
-}
-
-/* Fix for border colors */
-.border {
-  border-color: rgba(255, 255, 255, 0.15);
+/* Shadow */
+.shadow-colored {
+  box-shadow: 0 4px 14px 0 rgba(61, 213, 200, 0.3);
 }
