@@ -1,103 +1,239 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <div className="font-[family-name:var(--font-geist-sans)]">
+      {/* Hero Section */}
+      <section className="py-20 md:py-28">
+        <div className="container mx-auto px-4 text-center">
+          <h1 className="text-4xl md:text-6xl font-bold mb-6 max-w-4xl mx-auto">
+            A Next-Generation AI Swarm for Business Growth
+          </h1>
+          <p className="text-xl md:text-2xl text-foreground/70 mb-12 max-w-2xl mx-auto">
+            Analyze websites, create virtual focus groups, develop targeted marketing campaigns, and execute them across platforms—all with minimal human intervention.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link
+              href="/signup"
+              className="rounded-full bg-foreground text-background px-8 py-3 text-lg font-medium hover:bg-foreground/90 transition-colors"
+            >
+              Get Started
+            </Link>
+            <Link
+              href="/demo"
+              className="rounded-full border border-black/[.08] dark:border-white/[.145] px-8 py-3 text-lg font-medium hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] transition-colors"
+            >
+              Request Demo
+            </Link>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      </section>
+
+      {/* Features Section */}
+      <section className="py-20 bg-[#f9f9f9] dark:bg-[#111]">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl md:text-4xl font-bold mb-16 text-center">Core Capabilities</h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="bg-background p-6 rounded-xl shadow-sm">
+              <h3 className="text-xl font-semibold mb-4">Contextual Analysis Engine</h3>
+              <p className="text-foreground/70">
+                Analyzes websites and files to understand business context, extracts key messaging, and identifies target markets.
+              </p>
+            </div>
+            
+            <div className="bg-background p-6 rounded-xl shadow-sm">
+              <h3 className="text-xl font-semibold mb-4">Virtual Focus Group Generator</h3>
+              <p className="text-foreground/70">
+                Creates detailed personas based on ideal customer profiles and simulates audience reactions to potential marketing approaches.
+              </p>
+            </div>
+            
+            <div className="bg-background p-6 rounded-xl shadow-sm">
+              <h3 className="text-xl font-semibold mb-4">Campaign Creation Studio</h3>
+              <p className="text-foreground/70">
+                Develops comprehensive marketing campaigns with cohesive messaging and generates high-quality text and image content.
+              </p>
+            </div>
+            
+            <div className="bg-background p-6 rounded-xl shadow-sm">
+              <h3 className="text-xl font-semibold mb-4">Execution Gateway</h3>
+              <p className="text-foreground/70">
+                Deploys campaigns across selected channels, manages posting schedules, and tracks performance metrics for optimization.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* How It Works Section */}
+      <section className="py-20">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl md:text-4xl font-bold mb-16 text-center">How It Works</h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+            <div className="text-center">
+              <div className="bg-[#f2f2f2] dark:bg-[#1a1a1a] h-16 w-16 rounded-full flex items-center justify-center mx-auto mb-6">
+                <span className="text-2xl font-bold">1</span>
+              </div>
+              <h3 className="text-xl font-semibold mb-4">Analyze</h3>
+              <p className="text-foreground/70">
+                We analyze your website, content, and competitors to understand your business context and goals.
+              </p>
+            </div>
+            
+            <div className="text-center">
+              <div className="bg-[#f2f2f2] dark:bg-[#1a1a1a] h-16 w-16 rounded-full flex items-center justify-center mx-auto mb-6">
+                <span className="text-2xl font-bold">2</span>
+              </div>
+              <h3 className="text-xl font-semibold mb-4">Create</h3>
+              <p className="text-foreground/70">
+                Our AI swarm develops targeted marketing campaigns with cohesive messaging across multiple formats.
+              </p>
+            </div>
+            
+            <div className="text-center">
+              <div className="bg-[#f2f2f2] dark:bg-[#1a1a1a] h-16 w-16 rounded-full flex items-center justify-center mx-auto mb-6">
+                <span className="text-2xl font-bold">3</span>
+              </div>
+              <h3 className="text-xl font-semibold mb-4">Execute</h3>
+              <p className="text-foreground/70">
+                We deploy your campaigns across selected channels and continuously optimize for the best results.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Pricing Section */}
+      <section className="py-20 bg-[#f9f9f9] dark:bg-[#111]">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center">Simple, Transparent Pricing</h2>
+          <p className="text-xl text-foreground/70 mb-16 text-center max-w-2xl mx-auto">
+            Choose the plan that fits your business needs
+          </p>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="bg-background p-8 rounded-xl shadow-sm border border-black/[.08] dark:border-white/[.12]">
+              <h3 className="text-2xl font-bold mb-2">Basic</h3>
+              <p className="text-foreground/70 mb-6">For small businesses just getting started</p>
+              <p className="text-4xl font-bold mb-6">$199<span className="text-lg font-normal text-foreground/70">/month</span></p>
+              
+              <ul className="space-y-3 mb-8">
+                <li className="flex items-start">
+                  <span className="text-green-500 mr-2">✓</span>
+                  Website analysis
+                </li>
+                <li className="flex items-start">
+                  <span className="text-green-500 mr-2">✓</span>
+                  2 personas
+                </li>
+                <li className="flex items-start">
+                  <span className="text-green-500 mr-2">✓</span>
+                  20 content pieces/month
+                </li>
+                <li className="flex items-start">
+                  <span className="text-green-500 mr-2">✓</span>
+                  Manual execution guidance
+                </li>
+              </ul>
+              
+              <Link
+                href="/signup?plan=basic"
+                className="block w-full text-center rounded-full border border-black/[.08] dark:border-white/[.145] px-6 py-3 font-medium hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] transition-colors"
+              >
+                Get Started
+              </Link>
+            </div>
+            
+            <div className="bg-background p-8 rounded-xl shadow-sm border-2 border-foreground relative">
+              <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-foreground text-background px-4 py-1 rounded-full text-sm font-medium">
+                Most Popular
+              </div>
+              <h3 className="text-2xl font-bold mb-2">Growth</h3>
+              <p className="text-foreground/70 mb-6">For growing businesses with established presence</p>
+              <p className="text-4xl font-bold mb-6">$499<span className="text-lg font-normal text-foreground/70">/month</span></p>
+              
+              <ul className="space-y-3 mb-8">
+                <li className="flex items-start">
+                  <span className="text-green-500 mr-2">✓</span>
+                  Website + competitor analysis
+                </li>
+                <li className="flex items-start">
+                  <span className="text-green-500 mr-2">✓</span>
+                  5 personas
+                </li>
+                <li className="flex items-start">
+                  <span className="text-green-500 mr-2">✓</span>
+                  50 content pieces/month
+                </li>
+                <li className="flex items-start">
+                  <span className="text-green-500 mr-2">✓</span>
+                  Semi-automated execution
+                </li>
+              </ul>
+              
+              <Link
+                href="/signup?plan=growth"
+                className="block w-full text-center rounded-full bg-foreground text-background px-6 py-3 font-medium hover:bg-foreground/90 transition-colors"
+              >
+                Get Started
+              </Link>
+            </div>
+            
+            <div className="bg-background p-8 rounded-xl shadow-sm border border-black/[.08] dark:border-white/[.12]">
+              <h3 className="text-2xl font-bold mb-2">Enterprise</h3>
+              <p className="text-foreground/70 mb-6">For larger businesses with complex needs</p>
+              <p className="text-4xl font-bold mb-6">$1,499<span className="text-lg font-normal text-foreground/70">+/month</span></p>
+              
+              <ul className="space-y-3 mb-8">
+                <li className="flex items-start">
+                  <span className="text-green-500 mr-2">✓</span>
+                  Custom analysis
+                </li>
+                <li className="flex items-start">
+                  <span className="text-green-500 mr-2">✓</span>
+                  Unlimited personas
+                </li>
+                <li className="flex items-start">
+                  <span className="text-green-500 mr-2">✓</span>
+                  200+ content pieces/month
+                </li>
+                <li className="flex items-start">
+                  <span className="text-green-500 mr-2">✓</span>
+                  Fully automated execution
+                </li>
+              </ul>
+              
+              <Link
+                href="/contact"
+                className="block w-full text-center rounded-full border border-black/[.08] dark:border-white/[.145] px-6 py-3 font-medium hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] transition-colors"
+              >
+                Contact Sales
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-20">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 max-w-2xl mx-auto">
+            Ready to transform your marketing with AI?
+          </h2>
+          <p className="text-xl text-foreground/70 mb-12 max-w-2xl mx-auto">
+            Join thousands of businesses using MarketingMesh to grow their audience and increase revenue.
+          </p>
+          <Link
+            href="/signup"
+            className="rounded-full bg-foreground text-background px-8 py-3 text-lg font-medium hover:bg-foreground/90 transition-colors"
+          >
+            Get Started Today
+          </Link>
+        </div>
+      </section>
     </div>
   );
 }
