@@ -7,66 +7,66 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        background: 'hsl(var(--background) / <alpha-value>)',
-        foreground: 'hsl(var(--foreground) / <alpha-value>)',
+        background: '#0a0a0a',
+        foreground: '#f8f8f8',
         primary: {
-          DEFAULT: 'hsl(var(--primary) / <alpha-value>)',
-          foreground: 'hsl(var(--primary-foreground) / <alpha-value>)',
+          DEFAULT: '#3dd5c8',
+          foreground: '#ffffff',
         },
         secondary: {
-          DEFAULT: 'hsl(var(--secondary) / <alpha-value>)',
-          foreground: 'hsl(var(--secondary-foreground) / <alpha-value>)',
+          DEFAULT: '#e94e87',
+          foreground: '#ffffff',
         },
         accent: {
-          DEFAULT: 'hsl(var(--accent) / <alpha-value>)',
-          foreground: 'hsl(var(--accent-foreground) / <alpha-value>)',
+          DEFAULT: '#f5a76c',
+          foreground: '#ffffff',
         },
         muted: {
-          DEFAULT: 'hsl(var(--muted) / <alpha-value>)',
-          foreground: 'hsl(var(--muted-foreground) / <alpha-value>)',
+          DEFAULT: '#1a2234',
+          foreground: '#a0aec0',
         },
         card: {
-          DEFAULT: 'hsl(var(--card) / <alpha-value>)',
-          foreground: 'hsl(var(--card-foreground) / <alpha-value>)',
+          DEFAULT: '#111111',
+          foreground: '#f8f8f8',
         },
-        border: 'hsl(var(--border) / <alpha-value>)',
+        border: 'rgba(255, 255, 255, 0.15)',
       },
       borderRadius: {
-        lg: 'var(--radius)',
-        md: 'calc(var(--radius) - 2px)',
-        sm: 'calc(var(--radius) - 4px)',
+        lg: '0.5rem',
+        md: '0.375rem',
+        sm: '0.25rem',
       },
       typography: {
         DEFAULT: {
           css: {
-            color: 'hsl(var(--foreground))',
+            color: '#f8f8f8',
             a: {
-              color: 'hsl(var(--primary))',
+              color: '#3dd5c8',
               '&:hover': {
-                color: 'hsl(var(--primary) / 0.8)',
+                color: 'rgba(61, 213, 200, 0.8)',
               },
             },
             h1: {
-              color: 'hsl(var(--foreground))',
+              color: '#f8f8f8',
             },
             h2: {
-              color: 'hsl(var(--foreground))',
+              color: '#f8f8f8',
             },
             h3: {
-              color: 'hsl(var(--foreground))',
+              color: '#f8f8f8',
             },
             h4: {
-              color: 'hsl(var(--foreground))',
+              color: '#f8f8f8',
             },
             strong: {
-              color: 'hsl(var(--foreground))',
+              color: '#f8f8f8',
             },
             code: {
-              color: 'hsl(var(--foreground))',
+              color: '#f8f8f8',
             },
             blockquote: {
-              color: 'hsl(var(--foreground) / 0.8)',
-              borderLeftColor: 'hsl(var(--primary) / 0.2)',
+              color: 'rgba(248, 248, 248, 0.8)',
+              borderLeftColor: 'rgba(61, 213, 200, 0.2)',
             },
           },
         },

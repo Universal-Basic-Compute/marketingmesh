@@ -56,8 +56,8 @@ export default function Home() {
           </p>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="bg-card p-8 rounded-2xl shadow-sm border border-[hsl(var(--border))] hover:shadow-md transition-shadow group card-hover">
-              <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
+            <div className="bg-[#111111] p-8 rounded-2xl shadow-sm border border-[rgba(255,255,255,0.15)] hover:shadow-md transition-shadow group card-hover">
+              <div className="w-14 h-14 rounded-xl bg-[rgba(61,213,200,0.1)] flex items-center justify-center mb-6 group-hover:bg-[rgba(61,213,200,0.2)] transition-colors">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-primary">
                   <circle cx="12" cy="12" r="10"></circle>
                   <line x1="12" y1="16" x2="12" y2="12"></line>
@@ -71,7 +71,7 @@ export default function Home() {
             </div>
             
             <div className="bg-card p-8 rounded-2xl shadow-sm border border-[hsl(var(--border))] hover:shadow-md transition-shadow group card-hover">
-              <div className="w-14 h-14 rounded-xl bg-secondary/10 flex items-center justify-center mb-6 group-hover:bg-secondary/20 transition-colors">
+              <div className="w-14 h-14 rounded-xl bg-[rgba(233,78,135,0.1)] flex items-center justify-center mb-6 group-hover:bg-[rgba(233,78,135,0.2)] transition-colors">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-secondary">
                   <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
                   <circle cx="9" cy="7" r="4"></circle>
@@ -86,7 +86,7 @@ export default function Home() {
             </div>
             
             <div className="bg-card p-8 rounded-2xl shadow-sm border border-[hsl(var(--border))] hover:shadow-md transition-shadow group card-hover">
-              <div className="w-14 h-14 rounded-xl bg-accent/10 flex items-center justify-center mb-6 group-hover:bg-accent/20 transition-colors">
+              <div className="w-14 h-14 rounded-xl bg-[rgba(245,167,108,0.1)] flex items-center justify-center mb-6 group-hover:bg-[rgba(245,167,108,0.2)] transition-colors">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-accent">
                   <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
                 </svg>
@@ -98,7 +98,7 @@ export default function Home() {
             </div>
             
             <div className="bg-card p-8 rounded-2xl shadow-sm border border-[hsl(var(--border))] hover:shadow-md transition-shadow group card-hover">
-              <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
+              <div className="w-14 h-14 rounded-xl bg-[rgba(61,213,200,0.1)] flex items-center justify-center mb-6 group-hover:bg-[rgba(61,213,200,0.2)] transition-colors">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-primary">
                   <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
                 </svg>
@@ -125,7 +125,7 @@ export default function Home() {
             <div className="hidden md:block absolute top-24 left-1/2 -translate-x-1/2 h-0.5 w-[calc(66.6%-100px)] bg-gradient-to-r from-primary via-secondary to-accent"></div>
             
             <div className="text-center relative">
-              <div className="bg-primary h-16 w-16 rounded-full flex items-center justify-center mx-auto mb-8 glow-primary z-10 relative">
+              <div className="bg-[#3dd5c8] h-16 w-16 rounded-full flex items-center justify-center mx-auto mb-8 glow-primary z-10 relative">
                 <span className="text-2xl font-bold text-white">1</span>
               </div>
               <h3 className="text-2xl font-semibold mb-4 text-white">Analyze</h3>
@@ -135,7 +135,7 @@ export default function Home() {
             </div>
             
             <div className="text-center relative">
-              <div className="bg-secondary h-16 w-16 rounded-full flex items-center justify-center mx-auto mb-8 glow-secondary z-10 relative">
+              <div className="bg-[#e94e87] h-16 w-16 rounded-full flex items-center justify-center mx-auto mb-8 glow-secondary z-10 relative">
                 <span className="text-2xl font-bold text-white">2</span>
               </div>
               <h3 className="text-2xl font-semibold mb-4 text-white">Create</h3>
@@ -145,7 +145,7 @@ export default function Home() {
             </div>
             
             <div className="text-center relative">
-              <div className="bg-accent h-16 w-16 rounded-full flex items-center justify-center mx-auto mb-8 glow-accent z-10 relative">
+              <div className="bg-[#f5a76c] h-16 w-16 rounded-full flex items-center justify-center mx-auto mb-8 glow-accent z-10 relative">
                 <span className="text-2xl font-bold text-white">3</span>
               </div>
               <h3 className="text-2xl font-semibold mb-4 text-white">Execute</h3>
@@ -180,7 +180,7 @@ export default function Home() {
           </p>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            <div className="bg-card p-8 rounded-2xl shadow-sm border border-[hsl(var(--border))] hover:shadow-md transition-all hover:-translate-y-1 transform">
+            <div className="bg-[#111111] p-8 rounded-2xl shadow-sm border border-[rgba(255,255,255,0.15)] hover:shadow-md transition-all hover:-translate-y-1 transform">
               <h3 className="text-2xl font-bold mb-2">Basic</h3>
               <p className="text-muted-foreground mb-6">For small businesses just getting started</p>
               <p className="text-4xl font-bold mb-6">$199<span className="text-lg font-normal text-muted-foreground">/month</span></p>
@@ -220,7 +220,7 @@ export default function Home() {
               </Link>
             </div>
             
-            <div className="bg-card p-8 rounded-2xl shadow-lg border-2 border-primary relative transform scale-105 z-10">
+            <div className="bg-[#111111] p-8 rounded-2xl shadow-lg border-2 border-[#3dd5c8] relative transform scale-105 z-10">
               <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-primary-gradient text-primary-foreground px-4 py-1 rounded-full text-sm font-medium">
                 Most Popular
               </div>
@@ -263,7 +263,7 @@ export default function Home() {
               </Link>
             </div>
             
-            <div className="bg-card p-8 rounded-2xl shadow-sm border border-[hsl(var(--border))] hover:shadow-md transition-all hover:-translate-y-1 transform">
+            <div className="bg-[#111111] p-8 rounded-2xl shadow-sm border border-[rgba(255,255,255,0.15)] hover:shadow-md transition-all hover:-translate-y-1 transform">
               <h3 className="text-2xl font-bold mb-2">Enterprise</h3>
               <p className="text-muted-foreground mb-6">For larger businesses with complex needs</p>
               <p className="text-4xl font-bold mb-6">$1,499<span className="text-lg font-normal text-muted-foreground">+/month</span></p>
@@ -315,7 +315,7 @@ export default function Home() {
           </p>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-card p-8 rounded-2xl shadow-sm border border-[hsl(var(--border))]">
+            <div className="bg-[#111111] p-8 rounded-2xl shadow-sm border border-[rgba(255,255,255,0.15)]">
               <div className="flex items-center gap-1 text-yellow-400 mb-6">
                 {[1, 2, 3, 4, 5].map((star) => (
                   <svg key={star} xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
@@ -327,7 +327,7 @@ export default function Home() {
                 "MarketingMesh has completely transformed our marketing approach. We're now able to create consistent, high-quality content at scale with minimal effort."
               </p>
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold">
+                <div className="w-12 h-12 rounded-full bg-[rgba(61,213,200,0.2)] flex items-center justify-center text-[#3dd5c8] font-bold">
                   JD
                 </div>
                 <div>
@@ -349,7 +349,7 @@ export default function Home() {
                 "As a small business owner, I never had the resources for a full marketing team. MarketingMesh gives me enterprise-level marketing capabilities at a fraction of the cost."
               </p>
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold">
+                <div className="w-12 h-12 rounded-full bg-[rgba(61,213,200,0.2)] flex items-center justify-center text-[#3dd5c8] font-bold">
                   JS
                 </div>
                 <div>
@@ -371,7 +371,7 @@ export default function Home() {
                 "The virtual focus groups have been a game-changer for us. We're able to test messaging before going to market, saving us time and money while improving results."
               </p>
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold">
+                <div className="w-12 h-12 rounded-full bg-[rgba(61,213,200,0.2)] flex items-center justify-center text-[#3dd5c8] font-bold">
                   AJ
                 </div>
                 <div>

@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function Header() {
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-[hsl(var(--border))] bg-background/90 backdrop-blur-md">
+    <header className="sticky top-0 z-50 w-full border-b border border-[rgba(255,255,255,0.15)] bg-[#0a0a0a] bg-opacity-90 backdrop-blur-md">
       <div className="container mx-auto flex items-center justify-between p-4">
         <Link href="/" className="flex items-center gap-2 group">
           <Image 
@@ -20,16 +20,16 @@ export default function Header() {
         </Link>
         
         <nav className="hidden md:flex items-center gap-8">
-          <Link href="/features" className="text-foreground/80 hover:text-primary transition-colors font-medium">
+          <Link href="/features" className="text-[#f8f8f8] opacity-80 hover:text-[#3dd5c8] transition-colors font-medium">
             Features
           </Link>
-          <Link href="/pricing" className="text-foreground/80 hover:text-secondary transition-colors font-medium">
+          <Link href="/pricing" className="text-[#f8f8f8] opacity-80 hover:text-[#e94e87] transition-colors font-medium">
             Pricing
           </Link>
-          <Link href="/about" className="text-foreground/80 hover:text-accent transition-colors font-medium">
+          <Link href="/about" className="text-[#f8f8f8] opacity-80 hover:text-[#f5a76c] transition-colors font-medium">
             About
           </Link>
-          <Link href="/blog" className="text-foreground/80 hover:text-primary transition-colors font-medium">
+          <Link href="/blog" className="text-[#f8f8f8] opacity-80 hover:text-[#3dd5c8] transition-colors font-medium">
             Blog
           </Link>
         </nav>
@@ -37,7 +37,7 @@ export default function Header() {
         <div className="flex items-center gap-4">
           <Link 
             href="/login" 
-            className="hidden sm:block text-foreground/80 hover:text-secondary transition-colors font-medium"
+            className="hidden sm:block text-[#f8f8f8] opacity-80 hover:text-[#e94e87] transition-colors font-medium"
           >
             Log in
           </Link>
