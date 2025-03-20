@@ -8,7 +8,7 @@ export default function Home() {
       <section className="py-24 md:py-32 overflow-hidden relative bg-gradient">
         <div className="container mx-auto px-4 text-center relative">
           {/* Background decorative elements */}
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-primary/5 rounded-full blur-3xl -z-10"></div>
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-primary/10 rounded-full blur-3xl -z-10"></div>
           
           <h1 className="text-4xl md:text-6xl font-bold mb-6 max-w-4xl mx-auto leading-tight animate-fade-in">
             A Next-Generation <span className="gradient-text">AI Swarm</span> for Business Growth
@@ -19,13 +19,13 @@ export default function Home() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in" style={{animationDelay: "0.2s"}}>
             <Link
               href="/signup"
-              className="rounded-full bg-primary text-primary-foreground px-8 py-3.5 text-lg font-medium hover:bg-primary/90 transition-colors shadow-lg hover:shadow-xl hover:shadow-primary/20 hover:-translate-y-0.5 transform"
+              className="rounded-full bg-primary text-primary-foreground px-8 py-3.5 text-lg font-medium hover:bg-primary/90 transition-colors shadow-colored hover:shadow-xl hover:-translate-y-0.5 transform"
             >
               Get Started
             </Link>
             <Link
               href="/demo"
-              className="rounded-full border border-border px-8 py-3.5 text-lg font-medium hover:bg-secondary transition-colors"
+              className="rounded-full border border-white/30 text-white px-8 py-3.5 text-lg font-medium hover:bg-white/10 transition-colors"
             >
               Request Demo
             </Link>
@@ -123,7 +123,7 @@ export default function Home() {
             <div className="hidden md:block absolute top-24 left-1/2 -translate-x-1/2 h-0.5 w-[calc(66.6%-100px)] bg-gradient-to-r from-primary/20 via-primary to-primary/20"></div>
             
             <div className="text-center relative">
-              <div className="bg-primary h-16 w-16 rounded-full flex items-center justify-center mx-auto mb-8 shadow-lg shadow-primary/20 z-10 relative">
+              <div className="bg-primary h-16 w-16 rounded-full flex items-center justify-center mx-auto mb-8 shadow-colored z-10 relative">
                 <span className="text-2xl font-bold text-primary-foreground">1</span>
               </div>
               <h3 className="text-2xl font-semibold mb-4">Analyze</h3>
@@ -133,7 +133,7 @@ export default function Home() {
             </div>
             
             <div className="text-center relative">
-              <div className="bg-primary h-16 w-16 rounded-full flex items-center justify-center mx-auto mb-8 shadow-lg shadow-primary/20 z-10 relative">
+              <div className="bg-primary h-16 w-16 rounded-full flex items-center justify-center mx-auto mb-8 shadow-colored z-10 relative">
                 <span className="text-2xl font-bold text-primary-foreground">2</span>
               </div>
               <h3 className="text-2xl font-semibold mb-4">Create</h3>
@@ -143,7 +143,7 @@ export default function Home() {
             </div>
             
             <div className="text-center relative">
-              <div className="bg-primary h-16 w-16 rounded-full flex items-center justify-center mx-auto mb-8 shadow-lg shadow-primary/20 z-10 relative">
+              <div className="bg-primary h-16 w-16 rounded-full flex items-center justify-center mx-auto mb-8 shadow-colored z-10 relative">
                 <span className="text-2xl font-bold text-primary-foreground">3</span>
               </div>
               <h3 className="text-2xl font-semibold mb-4">Execute</h3>
@@ -219,7 +219,7 @@ export default function Home() {
             </div>
             
             <div className="bg-card p-8 rounded-2xl shadow-lg border-2 border-primary relative transform scale-105 z-10">
-              <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-primary text-primary-foreground px-4 py-1 rounded-full text-sm font-medium">
+              <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-primary-gradient text-primary-foreground px-4 py-1 rounded-full text-sm font-medium">
                 Most Popular
               </div>
               <h3 className="text-2xl font-bold mb-2">Growth</h3>
@@ -383,18 +383,18 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-gradient-to-br from-primary/10 via-primary/5 to-accent/10">
+      <section className="py-24 bg-primary-gradient">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-5xl font-bold mb-6 max-w-2xl mx-auto">
+          <h2 className="text-3xl md:text-5xl font-bold mb-6 max-w-2xl mx-auto text-white">
             Ready to transform your marketing with AI?
           </h2>
-          <p className="text-xl text-foreground/70 mb-12 max-w-2xl mx-auto">
+          <p className="text-xl text-white/80 mb-12 max-w-2xl mx-auto">
             Join thousands of businesses using MarketingMesh to grow their audience and increase revenue.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/signup"
-              className="rounded-full bg-primary text-primary-foreground px-8 py-3.5 text-lg font-medium hover:bg-primary/90 transition-colors shadow-lg hover:shadow-xl hover:shadow-primary/20 hover:-translate-y-0.5 transform"
+              className="rounded-full bg-white text-primary px-8 py-3.5 text-lg font-medium hover:bg-white/90 transition-colors shadow-colored hover:shadow-xl hover:-translate-y-0.5 transform"
             >
               Get Started Today
             </Link>
