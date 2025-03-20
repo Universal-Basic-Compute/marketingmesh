@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="border-t border-border bg-background py-16">
+    <footer className="border-t border-[hsl(var(--border))] bg-background py-16">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
           <div className="col-span-1 md:col-span-1">
@@ -75,7 +75,7 @@ export default function Footer() {
           </div>
         </div>
         
-        <div className="border-t border-border mt-16 pt-8 flex flex-col md:flex-row justify-between items-center">
+        <div className="border-t border-[hsl(var(--border))] mt-16 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-sm text-muted-foreground">
             &copy; {new Date().getFullYear()} MarketingMesh. All rights reserved.
           </p>

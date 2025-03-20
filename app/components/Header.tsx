@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function Header() {
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border bg-background/90 backdrop-blur-md">
+    <header className="sticky top-0 z-50 w-full border-b border-[hsl(var(--border))] bg-background/90 backdrop-blur-md">
       <div className="container mx-auto flex items-center justify-between p-4">
         <Link href="/" className="flex items-center gap-2 group">
           <Image 

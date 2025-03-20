@@ -56,7 +56,7 @@ export default function Home() {
           </p>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="bg-card p-8 rounded-2xl shadow-sm border border-border hover:shadow-md transition-shadow group card-hover">
+            <div className="bg-card p-8 rounded-2xl shadow-sm border border-[hsl(var(--border))] hover:shadow-md transition-shadow group card-hover">
               <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-primary">
                   <circle cx="12" cy="12" r="10"></circle>
@@ -70,7 +70,7 @@ export default function Home() {
               </p>
             </div>
             
-            <div className="bg-card p-8 rounded-2xl shadow-sm border border-border hover:shadow-md transition-shadow group card-hover">
+            <div className="bg-card p-8 rounded-2xl shadow-sm border border-[hsl(var(--border))] hover:shadow-md transition-shadow group card-hover">
               <div className="w-14 h-14 rounded-xl bg-secondary/10 flex items-center justify-center mb-6 group-hover:bg-secondary/20 transition-colors">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-secondary">
                   <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
@@ -85,7 +85,7 @@ export default function Home() {
               </p>
             </div>
             
-            <div className="bg-card p-8 rounded-2xl shadow-sm border border-border hover:shadow-md transition-shadow group card-hover">
+            <div className="bg-card p-8 rounded-2xl shadow-sm border border-[hsl(var(--border))] hover:shadow-md transition-shadow group card-hover">
               <div className="w-14 h-14 rounded-xl bg-accent/10 flex items-center justify-center mb-6 group-hover:bg-accent/20 transition-colors">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-accent">
                   <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
@@ -97,7 +97,7 @@ export default function Home() {
               </p>
             </div>
             
-            <div className="bg-card p-8 rounded-2xl shadow-sm border border-border hover:shadow-md transition-shadow group card-hover">
+            <div className="bg-card p-8 rounded-2xl shadow-sm border border-[hsl(var(--border))] hover:shadow-md transition-shadow group card-hover">
               <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-primary">
                   <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
@@ -180,7 +180,7 @@ export default function Home() {
           </p>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            <div className="bg-card p-8 rounded-2xl shadow-sm border border-border hover:shadow-md transition-all hover:-translate-y-1 transform">
+            <div className="bg-card p-8 rounded-2xl shadow-sm border border-[hsl(var(--border))] hover:shadow-md transition-all hover:-translate-y-1 transform">
               <h3 className="text-2xl font-bold mb-2">Basic</h3>
               <p className="text-muted-foreground mb-6">For small businesses just getting started</p>
               <p className="text-4xl font-bold mb-6">$199<span className="text-lg font-normal text-muted-foreground">/month</span></p>
@@ -214,7 +214,7 @@ export default function Home() {
               
               <Link
                 href="/signup?plan=basic"
-                className="block w-full text-center rounded-full border border-border px-6 py-3 font-medium hover:bg-secondary transition-colors"
+                className="block w-full text-center rounded-full border border-[hsl(var(--border))] px-6 py-3 font-medium hover:bg-secondary transition-colors"
               >
                 Get Started
               </Link>
@@ -263,7 +263,7 @@ export default function Home() {
               </Link>
             </div>
             
-            <div className="bg-card p-8 rounded-2xl shadow-sm border border-border hover:shadow-md transition-all hover:-translate-y-1 transform">
+            <div className="bg-card p-8 rounded-2xl shadow-sm border border-[hsl(var(--border))] hover:shadow-md transition-all hover:-translate-y-1 transform">
               <h3 className="text-2xl font-bold mb-2">Enterprise</h3>
               <p className="text-muted-foreground mb-6">For larger businesses with complex needs</p>
               <p className="text-4xl font-bold mb-6">$1,499<span className="text-lg font-normal text-muted-foreground">+/month</span></p>
@@ -297,7 +297,7 @@ export default function Home() {
               
               <Link
                 href="/contact"
-                className="block w-full text-center rounded-full border border-border px-6 py-3 font-medium hover:bg-secondary transition-colors"
+                className="block w-full text-center rounded-full border border-[hsl(var(--border))] px-6 py-3 font-medium hover:bg-secondary transition-colors"
               >
                 Contact Sales
               </Link>
@@ -315,7 +315,7 @@ export default function Home() {
           </p>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-card p-8 rounded-2xl shadow-sm border border-border">
+            <div className="bg-card p-8 rounded-2xl shadow-sm border border-[hsl(var(--border))]">
               <div className="flex items-center gap-1 text-yellow-400 mb-6">
                 {[1, 2, 3, 4, 5].map((star) => (
                   <svg key={star} xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
@@ -337,7 +337,7 @@ export default function Home() {
               </div>
             </div>
             
-            <div className="bg-card p-8 rounded-2xl shadow-sm border border-border">
+            <div className="bg-card p-8 rounded-2xl shadow-sm border border-[hsl(var(--border))]">
               <div className="flex items-center gap-1 text-yellow-400 mb-6">
                 {[1, 2, 3, 4, 5].map((star) => (
                   <svg key={star} xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
@@ -359,7 +359,7 @@ export default function Home() {
               </div>
             </div>
             
-            <div className="bg-card p-8 rounded-2xl shadow-sm border border-border">
+            <div className="bg-card p-8 rounded-2xl shadow-sm border border-[hsl(var(--border))]">
               <div className="flex items-center gap-1 text-yellow-400 mb-6">
                 {[1, 2, 3, 4, 5].map((star) => (
                   <svg key={star} xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
