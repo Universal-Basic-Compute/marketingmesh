@@ -2,7 +2,16 @@
 
 MarketingMesh is an end-to-end AI marketing solution that leverages swarm intelligence to analyze websites, create virtual focus groups, develop targeted marketing campaigns, and execute them across platforms—all with minimal human intervention.
 
-![MarketingMesh](https://your-image-url-here.com/screenshot.png)
+![MarketingMesh](/public/MM.png)
+
+## Color Scheme
+
+Our color scheme is inspired by our logo:
+- **Background**: Dark/Black (#0F0F0F)
+- **Primary**: Teal/Turquoise (from logo)
+- **Secondary**: Pink (from logo)
+- **Accent**: Orange/Coral (from logo)
+- **Text**: White/Light Gray
 
 ## Features
 

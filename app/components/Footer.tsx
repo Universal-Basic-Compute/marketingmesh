@@ -8,11 +8,16 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
           <div className="col-span-1 md:col-span-1">
             <Link href="/" className="flex items-center gap-2 mb-6 group">
-              <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center text-white font-bold text-xl">
-                M
-              </div>
+              <Image 
+                src="/MM.png" 
+                alt="MarketingMesh Logo" 
+                width={40} 
+                height={40} 
+                className="rounded-lg"
+              />
               <span className="text-xl font-bold group-hover:opacity-90 transition-opacity">
-                MarketingMesh
+                <span className="text-white">MARKETING</span>
+                <span className="gradient-text">MESH</span>
               </span>
             </Link>
             <p className="text-muted-foreground max-w-xs">
@@ -40,7 +45,7 @@ export default function Footer() {
           </div>
           
           <div>
-            <h3 className="font-semibold mb-6 text-lg">Product</h3>
+            <h3 className="font-semibold mb-6 text-lg text-white">Product</h3>
             <ul className="space-y-4">
               <li><Link href="/features" className="text-muted-foreground hover:text-primary transition-colors">Features</Link></li>
               <li><Link href="/pricing" className="text-muted-foreground hover:text-primary transition-colors">Pricing</Link></li>
@@ -50,22 +55,22 @@ export default function Footer() {
           </div>
           
           <div>
-            <h3 className="font-semibold mb-6 text-lg">Resources</h3>
+            <h3 className="font-semibold mb-6 text-lg text-white">Resources</h3>
             <ul className="space-y-4">
-              <li><Link href="/blog" className="text-muted-foreground hover:text-primary transition-colors">Blog</Link></li>
-              <li><Link href="/docs" className="text-muted-foreground hover:text-primary transition-colors">Documentation</Link></li>
-              <li><Link href="/support" className="text-muted-foreground hover:text-primary transition-colors">Support</Link></li>
-              <li><Link href="/api" className="text-muted-foreground hover:text-primary transition-colors">API</Link></li>
+              <li><Link href="/blog" className="text-muted-foreground hover:text-secondary transition-colors">Blog</Link></li>
+              <li><Link href="/docs" className="text-muted-foreground hover:text-secondary transition-colors">Documentation</Link></li>
+              <li><Link href="/support" className="text-muted-foreground hover:text-secondary transition-colors">Support</Link></li>
+              <li><Link href="/api" className="text-muted-foreground hover:text-secondary transition-colors">API</Link></li>
             </ul>
           </div>
           
           <div>
-            <h3 className="font-semibold mb-6 text-lg">Company</h3>
+            <h3 className="font-semibold mb-6 text-lg text-white">Company</h3>
             <ul className="space-y-4">
-              <li><Link href="/about" className="text-muted-foreground hover:text-primary transition-colors">About</Link></li>
-              <li><Link href="/careers" className="text-muted-foreground hover:text-primary transition-colors">Careers</Link></li>
-              <li><Link href="/contact" className="text-muted-foreground hover:text-primary transition-colors">Contact</Link></li>
-              <li><Link href="/privacy" className="text-muted-foreground hover:text-primary transition-colors">Privacy</Link></li>
+              <li><Link href="/about" className="text-muted-foreground hover:text-accent transition-colors">About</Link></li>
+              <li><Link href="/careers" className="text-muted-foreground hover:text-accent transition-colors">Careers</Link></li>
+              <li><Link href="/contact" className="text-muted-foreground hover:text-accent transition-colors">Contact</Link></li>
+              <li><Link href="/privacy" className="text-muted-foreground hover:text-accent transition-colors">Privacy</Link></li>
             </ul>
           </div>
         </div>
@@ -78,10 +83,10 @@ export default function Footer() {
             <Link href="/terms" className="text-sm text-muted-foreground hover:text-primary transition-colors">
               Terms of Service
             </Link>
-            <Link href="/privacy" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+            <Link href="/privacy" className="text-sm text-muted-foreground hover:text-secondary transition-colors">
               Privacy Policy
             </Link>
-            <Link href="/cookies" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+            <Link href="/cookies" className="text-sm text-muted-foreground hover:text-accent transition-colors">
               Cookie Policy
             </Link>
           </div>
