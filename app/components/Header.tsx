@@ -3,47 +3,72 @@ import Link from "next/link";
 
 export default function Header() {
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-light bg-dark bg-opacity-90 backdrop-blur-md">
-      <div className="container mx-auto flex items-center justify-between p-4">
-        <Link href="/" className="flex items-center gap-2 group">
+    <header style={{ 
+      position: 'sticky', 
+      top: 0, 
+      zIndex: 50, 
+      width: '100%', 
+      borderBottom: '1px solid rgba(255,255,255,0.15)', 
+      backgroundColor: 'rgba(10,10,10,0.9)', 
+      backdropFilter: 'blur(8px)' 
+    }}>
+      <div style={{ 
+        maxWidth: '1200px', 
+        margin: '0 auto', 
+        padding: '1rem', 
+        display: 'flex', 
+        alignItems: 'center', 
+        justifyContent: 'space-between' 
+      }}>
+        <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', textDecoration: 'none' }}>
           <Image 
             src="/MM.png" 
             alt="MarketingMesh Logo" 
             width={40} 
             height={40} 
-            className="rounded-lg"
+            style={{ borderRadius: '0.5rem' }}
           />
-          <span className="text-xl font-bold group-hover:opacity-90 transition-opacity">
-            <span className="text-white">MARKETING</span>
+          <span style={{ fontSize: '1.25rem', fontWeight: 'bold' }}>
+            <span style={{ color: 'white' }}>MARKETING</span>
             <span className="gradient-text">MESH</span>
           </span>
         </Link>
         
-        <nav className="hidden md:flex items-center gap-8">
-          <Link href="/features" className="text-white opacity-80 hover:text-teal transition-colors font-medium">
+        <nav style={{ display: 'none', alignItems: 'center', gap: '2rem' }} className="md:flex">
+          <Link href="/features" style={{ color: 'rgba(255,255,255,0.8)', textDecoration: 'none', fontWeight: 500, transition: 'color 0.2s' }} onMouseOver={(e) => e.currentTarget.style.color = '#3dd5c8'} onMouseOut={(e) => e.currentTarget.style.color = 'rgba(255,255,255,0.8)'}>
             Features
           </Link>
-          <Link href="/pricing" className="text-white opacity-80 hover:text-pink transition-colors font-medium">
+          <Link href="/pricing" style={{ color: 'rgba(255,255,255,0.8)', textDecoration: 'none', fontWeight: 500, transition: 'color 0.2s' }} onMouseOver={(e) => e.currentTarget.style.color = '#e94e87'} onMouseOut={(e) => e.currentTarget.style.color = 'rgba(255,255,255,0.8)'}>
             Pricing
           </Link>
-          <Link href="/about" className="text-white opacity-80 hover:text-orange transition-colors font-medium">
+          <Link href="/about" style={{ color: 'rgba(255,255,255,0.8)', textDecoration: 'none', fontWeight: 500, transition: 'color 0.2s' }} onMouseOver={(e) => e.currentTarget.style.color = '#f5a76c'} onMouseOut={(e) => e.currentTarget.style.color = 'rgba(255,255,255,0.8)'}>
             About
           </Link>
-          <Link href="/blog" className="text-white opacity-80 hover:text-teal transition-colors font-medium">
+          <Link href="/blog" style={{ color: 'rgba(255,255,255,0.8)', textDecoration: 'none', fontWeight: 500, transition: 'color 0.2s' }} onMouseOver={(e) => e.currentTarget.style.color = '#3dd5c8'} onMouseOut={(e) => e.currentTarget.style.color = 'rgba(255,255,255,0.8)'}>
             Blog
           </Link>
         </nav>
         
-        <div className="flex items-center gap-4">
+        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
           <Link 
             href="/login" 
-            className="hidden sm:block text-white opacity-80 hover:text-pink transition-colors font-medium"
+            style={{ 
+              display: 'none', 
+              color: 'rgba(255,255,255,0.8)', 
+              textDecoration: 'none', 
+              fontWeight: 500, 
+              transition: 'color 0.2s' 
+            }} 
+            className="sm:block"
+            onMouseOver={(e) => e.currentTarget.style.color = '#e94e87'} 
+            onMouseOut={(e) => e.currentTarget.style.color = 'rgba(255,255,255,0.8)'}
           >
             Log in
           </Link>
           <Link 
             href="/signup" 
-            className="btn btn-primary text-sm px-5 py-2.5"
+            className="btn btn-primary"
+            style={{ fontSize: '0.875rem', padding: '0.625rem 1.25rem' }}
           >
             Get Started
           </Link>
