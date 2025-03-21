@@ -319,20 +319,23 @@ export default function MeshPage() {
         <div style={{
           padding: '1rem',
           borderTop: '1px solid rgba(255,255,255,0.15)',
-          backgroundColor: '#111111', // Ensure background color
+          backgroundColor: '#111111',
           position: 'absolute',
           bottom: 0,
           width: '100%',
-          zIndex: 10 // Ensure it stays on top
+          zIndex: 10,
+          boxSizing: 'border-box' // Add this to include padding in width calculation
         }}>
           <div style={{
             display: 'flex',
             alignItems: 'center',
-            justifyContent: sidebarOpen ? 'flex-start' : 'center'
+            justifyContent: sidebarOpen ? 'flex-start' : 'center',
+            width: '100%' // Ensure the container takes full width
           }}>
             <div style={{
               width: '2rem',
               height: '2rem',
+              minWidth: '2rem', // Add this to prevent shrinking
               borderRadius: '9999px',
               backgroundColor: 'rgba(61, 213, 200, 0.2)',
               display: 'flex',
@@ -345,7 +348,7 @@ export default function MeshPage() {
             {sidebarOpen && (
               <div style={{ 
                 marginLeft: '0.75rem',
-                maxWidth: 'calc(100% - 3rem)', 
+                width: 'calc(100% - 2.75rem)', // Calculate exact width based on avatar + margin
                 overflow: 'hidden'
               }}>
                 <p style={{
@@ -355,7 +358,8 @@ export default function MeshPage() {
                   margin: 0,
                   whiteSpace: 'nowrap',
                   overflow: 'hidden',
-                  textOverflow: 'ellipsis'
+                  textOverflow: 'ellipsis',
+                  width: '100%' // Ensure text takes full width of container
                 }}>
                   {session?.user?.email || 'User'}
                 </p>
