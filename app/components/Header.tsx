@@ -1,3 +1,5 @@
+"use client"; // Add this directive to mark as a Client Component
+
 import Image from "next/image";
 import Link from "next/link";
 
