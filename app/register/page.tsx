@@ -43,6 +43,7 @@ export default function Register() {
       // Handle non-JSON responses
       const contentType = response.headers.get('content-type');
       if (!contentType || !contentType.includes('application/json')) {
+        console.error('Non-JSON response received:', await response.text());
         throw new Error('Server returned non-JSON response. Please try again later.');
       }
       
