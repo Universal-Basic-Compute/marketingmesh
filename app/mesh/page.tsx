@@ -86,12 +86,19 @@ export default function MeshPage() {
           
           console.log(`Fetching business content from: ${url}`);
           
+          // Add a timeout to the fetch request
+          const controller = new AbortController();
+          const timeoutId = setTimeout(() => controller.abort(), 10000); // 10 second timeout
+          
           // Make the API request
           const response = await fetch(url, {
             headers: {
-              'Authorization': `Bearer ${process.env.NEXT_PUBLIC_KINOS_API_KEY}`
-            }
+              'Authorization': `Bearer ${process.env.NEXT_PUBLIC_KINOS_API_KEY || ''}`
+            },
+            signal: controller.signal
           });
+          
+          clearTimeout(timeoutId);
           
           if (!response.ok) {
             throw new Error(`Failed to fetch business content: ${response.status}`);
@@ -102,8 +109,21 @@ export default function MeshPage() {
           setBusinessContent(data);
         } catch (error) {
           console.error('Failed to fetch business content:', error);
-          // Set a default message if the content can't be fetched
-          setFileContent('# Business Analysis\n\nUnable to fetch business data. Please try again later.');
+          
+          // Set a more user-friendly message based on the error
+          let errorMessage = 'Unable to fetch business data. Please try again later.';
+          
+          if (error.name === 'AbortError') {
+            errorMessage = 'Request timed out. The server might be unavailable.';
+          } else if (error.message && error.message.includes('Failed to fetch')) {
+            errorMessage = 'Network error. Please check your connection or the API server status.';
+          }
+          
+          // Display a fallback message in the content area
+          setFileContent(`# Business Analysis\n\n${errorMessage}\n\nYou can still use the chat to analyze your business.`);
+          
+          // Set businessContent to null to ensure we show the fallback content
+          setBusinessContent(null);
         } finally {
           setBusinessContentLoading(false);
         }
@@ -130,13 +150,20 @@ export default function MeshPage() {
     try {
       console.log("Attempting to play TTS for text:", text.substring(0, 50) + "...");
       
+      // Add a timeout to the fetch request
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 10000); // 10 second timeout
+      
       const response = await fetch('/api/kinos/tts', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({ text }),
+        signal: controller.signal
       });
+      
+      clearTimeout(timeoutId);
       
       if (!response.ok) {
         const errorText = await response.text();
@@ -164,9 +191,18 @@ export default function MeshPage() {
       
       // Play the audio
       console.log("Playing TTS audio...");
-      await audio.play();
+      await audio.play().catch(e => {
+        console.error('Error playing audio:', e);
+        // Some browsers require user interaction before playing audio
+        if (e.name === 'NotAllowedError') {
+          console.log('Audio playback requires user interaction first');
+        }
+      });
     } catch (error) {
       console.error('Error playing TTS:', error);
+      if (error.name === 'AbortError') {
+        console.log('TTS request timed out');
+      }
     }
   };
   
@@ -182,6 +218,10 @@ export default function MeshPage() {
     setIsLoading(true);
     
     try {
+      // Add a timeout to the fetch request
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 30000); // 30 second timeout for message processing
+      
       // Send the message to Kinos Engine API with the current step as the mode
       const response = await fetch('/api/kinos/message', {
         method: 'POST',
@@ -193,7 +233,10 @@ export default function MeshPage() {
           mode: activeStep, // Add the current step as the mode parameter
           // You can add attachments, images, model, historyLength here if needed
         }),
+        signal: controller.signal
       });
+      
+      clearTimeout(timeoutId);
       
       if (!response.ok) {
         const errorText = await response.text();
@@ -230,10 +273,21 @@ export default function MeshPage() {
     } catch (error) {
       console.error('Error sending message:', error);
       
+      // Create a user-friendly error message
+      let errorContent = 'Failed to get response from the AI assistant.';
+      
+      if (error.name === 'AbortError') {
+        errorContent = 'Request timed out. The server might be taking too long to respond.';
+      } else if (error.message && error.message.includes('Failed to fetch')) {
+        errorContent = 'Network error. Please check your connection and try again.';
+      } else if (error.message) {
+        errorContent = `Error: ${error.message}`;
+      }
+      
       // Add error message to chat
       const errorMessage = {
         role: 'system',
-        content: `Error: ${error.message || 'Failed to get response'}`
+        content: errorContent
       };
       setMessages(prev => [...prev, errorMessage]);
     } finally {

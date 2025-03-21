@@ -29,20 +29,47 @@ export async function POST(request: Request) {
       );
     }
     
-    // Send the message to Kinos with the mode parameter
-    const response = await sendMessageToKinos(email, content, {
-      mode, // Pass the mode parameter
-      attachments,
-      images,
-      model,
-      historyLength
-    });
+    // Check if API key is set
+    if (!process.env.KINOS_API_KEY && !process.env.NEXT_PUBLIC_KINOS_API_KEY) {
+      console.error('Missing Kinos API key');
+      return NextResponse.json(
+        { error: 'Server configuration error: Missing API key' },
+        { status: 500 }
+      );
+    }
     
-    return NextResponse.json(response);
+    // Send the message to Kinos with the mode parameter
+    try {
+      const response = await sendMessageToKinos(email, content, {
+        mode, // Pass the mode parameter
+        attachments,
+        images,
+        model,
+        historyLength
+      });
+      
+      return NextResponse.json(response);
+    } catch (kinosError) {
+      console.error('Error from Kinos API:', kinosError);
+      
+      // Create a more user-friendly error message
+      let errorMessage = 'Failed to process your message';
+      
+      if (kinosError.message && kinosError.message.includes('Failed to fetch')) {
+        errorMessage = 'Could not connect to the AI service. Please check your network connection.';
+      } else if (kinosError.message) {
+        errorMessage = kinosError.message;
+      }
+      
+      return NextResponse.json(
+        { error: errorMessage, response: 'I apologize, but I encountered an error processing your request. Please try again later.' },
+        { status: 500 }
+      );
+    }
   } catch (error) {
     console.error('Error in Kinos message API:', error);
     return NextResponse.json(
-      { error: error.message || 'Internal server error' },
+      { error: error.message || 'Internal server error', response: 'Sorry, something went wrong. Please try again later.' },
       { status: 500 }
     );
   }
