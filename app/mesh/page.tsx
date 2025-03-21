@@ -6,43 +6,6 @@ import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import ReactMarkdown from 'react-markdown';
 
-// Function to fetch project content
-const fetchProjectContent = async (email: string, path?: string) => {
-  try {
-    // Format the email for use as project ID
-    const formattedEmail = email.replace('@', '_at_').replace(/\./g, '_dot_');
-    
-    // Construct the API URL
-    const baseUrl = process.env.NODE_ENV === 'development' 
-      ? 'http://localhost:5000' 
-      : 'https://api.kinos-engine.ai';
-    
-    let url = `${baseUrl}/projects/marketingmesh/${formattedEmail}/content`;
-    
-    // Add path parameter if provided
-    if (path) {
-      url += `?path=${encodeURIComponent(path)}`;
-    }
-    
-    console.log(`Fetching project content from: ${url}`);
-    
-    // Make the API request
-    const response = await fetch(url, {
-      headers: {
-        'Authorization': `Bearer ${process.env.NEXT_PUBLIC_KINOS_API_KEY}`
-      }
-    });
-    
-    if (!response.ok) {
-      throw new Error(`Failed to fetch project content: ${response.status}`);
-    }
-    
-    return await response.json();
-  } catch (error) {
-    console.error('Error fetching project content:', error);
-    throw error;
-  }
-};
 
 export default function MeshPage() {
   const { data: session, status } = useSession();
@@ -110,8 +73,33 @@ export default function MeshPage() {
       if (activeStep === 'business' && session?.user?.email) {
         setBusinessContentLoading(true);
         try {
-          const content = await fetchProjectContent(session.user.email, 'memories/business');
-          setBusinessContent(content);
+          // Format the email for project ID
+          const formattedEmail = session.user.email.replace('@', '_at_').replace(/\./g, '_dot_');
+          
+          // Get the appropriate base URL
+          const baseUrl = process.env.NODE_ENV === 'development' 
+            ? 'http://localhost:5000' 
+            : 'https://api.kinos-engine.ai';
+          
+          // Construct the API URL for the memories/business directory
+          const url = `${baseUrl}/projects/marketingmesh/${formattedEmail}/content?path=memories/business`;
+          
+          console.log(`Fetching business content from: ${url}`);
+          
+          // Make the API request
+          const response = await fetch(url, {
+            headers: {
+              'Authorization': `Bearer ${process.env.NEXT_PUBLIC_KINOS_API_KEY}`
+            }
+          });
+          
+          if (!response.ok) {
+            throw new Error(`Failed to fetch business content: ${response.status}`);
+          }
+          
+          const data = await response.json();
+          console.log('Business content data:', data);
+          setBusinessContent(data);
         } catch (error) {
           console.error('Failed to fetch business content:', error);
           // Set a default message if the content can't be fetched
