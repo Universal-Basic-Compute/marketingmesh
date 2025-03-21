@@ -1,4 +1,4 @@
-"use client"; // Add this directive to mark as a Client Component
+"use client";
 
 import Image from "next/image";
 import Link from "next/link";
@@ -17,9 +17,17 @@ export default function Footer() {
       }}>
         <div style={{ 
           display: 'grid', 
-          gridTemplateColumns: '1fr', 
-          gap: '2.5rem' 
-        }} className="md:grid-cols-4">
+          gridTemplateColumns: 'repeat(1, 1fr)',
+          gap: '2.5rem'
+        }}>
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(1, 1fr)',
+            gap: '2.5rem',
+            '@media (min-width: 768px)': {
+              gridTemplateColumns: 'repeat(4, 1fr)'
+            }
+          }}>
           <div>
             <Link href="/" style={{ 
               display: 'flex', 
@@ -101,16 +109,18 @@ export default function Footer() {
           paddingTop: '2rem', 
           display: 'flex', 
           flexDirection: 'column', 
-          alignItems: 'center' 
-        }} className="md:flex-row md:justify-between">
-          <p style={{ fontSize: '0.875rem', color: '#a0aec0' }}>
+          alignItems: 'center',
+          textAlign: 'center'
+        }}>
+          <p style={{ fontSize: '0.875rem', color: '#a0aec0', marginBottom: '1.5rem' }}>
             &copy; {new Date().getFullYear()} MarketingMesh. All rights reserved.
           </p>
           <div style={{ 
             display: 'flex', 
+            flexWrap: 'wrap',
             gap: '1.5rem', 
-            marginTop: '1.5rem' 
-          }} className="md:mt-0">
+            justifyContent: 'center'
+          }}>
             <Link href="/terms" style={{ fontSize: '0.875rem', color: '#a0aec0', textDecoration: 'none', transition: 'color 0.2s' }} onMouseOver={(e) => e.currentTarget.style.color = '#3dd5c8'} onMouseOut={(e) => e.currentTarget.style.color = '#a0aec0'}>
               Terms of Service
             </Link>
