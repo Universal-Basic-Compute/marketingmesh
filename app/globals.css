@@ -255,6 +255,18 @@ p {
   .md\:grid-cols-4 {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
+  
+  .md\:flex-row {
+    flex-direction: row;
+  }
+  
+  .md\:justify-between {
+    justify-content: space-between;
+  }
+  
+  .md\:mt-0 {
+    margin-top: 0;
+  }
 }
 
 @media (min-width: 1024px) {
