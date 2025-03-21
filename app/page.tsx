@@ -316,7 +316,26 @@ export default function Home() {
               
               <Link
                 href="/signup?plan=basic"
-                className="block w-full text-center rounded-full border border-light px-6 py-3 font-medium hover:bg-pink hover:text-white transition-colors"
+                style={{
+                  display: 'block',
+                  width: '100%',
+                  textAlign: 'center',
+                  borderRadius: '9999px',
+                  border: '1px solid rgba(255,255,255,0.15)',
+                  padding: '0.75rem 1.5rem',
+                  fontWeight: '500',
+                  color: 'white',
+                  textDecoration: 'none',
+                  transition: 'all 0.2s'
+                }}
+                onMouseOver={(e) => {
+                  e.currentTarget.style.backgroundColor = '#e94e87';
+                  e.currentTarget.style.borderColor = '#e94e87';
+                }}
+                onMouseOut={(e) => {
+                  e.currentTarget.style.backgroundColor = 'transparent';
+                  e.currentTarget.style.borderColor = 'rgba(255,255,255,0.15)';
+                }}
               >
                 Get Started
               </Link>
@@ -359,7 +378,27 @@ export default function Home() {
               
               <Link
                 href="/signup?plan=growth"
-                className="block w-full text-center rounded-full bg-teal text-white px-6 py-3 font-medium hover:opacity-90 transition-colors shadow-md hover:shadow-lg"
+                style={{
+                  display: 'block',
+                  width: '100%',
+                  textAlign: 'center',
+                  borderRadius: '9999px',
+                  backgroundColor: '#3dd5c8',
+                  color: 'white',
+                  padding: '0.75rem 1.5rem',
+                  fontWeight: '500',
+                  boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
+                  textDecoration: 'none',
+                  transition: 'all 0.2s'
+                }}
+                onMouseOver={(e) => {
+                  e.currentTarget.style.opacity = '0.9';
+                  e.currentTarget.style.boxShadow = '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)';
+                }}
+                onMouseOut={(e) => {
+                  e.currentTarget.style.opacity = '1';
+                  e.currentTarget.style.boxShadow = '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)';
+                }}
               >
                 Get Started
               </Link>
@@ -399,7 +438,26 @@ export default function Home() {
               
               <Link
                 href="/contact"
-                className="block w-full text-center rounded-full border border-light px-6 py-3 font-medium hover:bg-pink hover:text-white transition-colors"
+                style={{
+                  display: 'block',
+                  width: '100%',
+                  textAlign: 'center',
+                  borderRadius: '9999px',
+                  border: '1px solid rgba(255,255,255,0.15)',
+                  padding: '0.75rem 1.5rem',
+                  fontWeight: '500',
+                  color: 'white',
+                  textDecoration: 'none',
+                  transition: 'all 0.2s'
+                }}
+                onMouseOver={(e) => {
+                  e.currentTarget.style.backgroundColor = '#e94e87';
+                  e.currentTarget.style.borderColor = '#e94e87';
+                }}
+                onMouseOut={(e) => {
+                  e.currentTarget.style.backgroundColor = 'transparent';
+                  e.currentTarget.style.borderColor = 'rgba(255,255,255,0.15)';
+                }}
               >
                 Contact Sales
               </Link>
