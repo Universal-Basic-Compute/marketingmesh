@@ -32,13 +32,19 @@ export default function Register() {
     try {
       setLoading(true);
       
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL || '/api'}/auth/register`, {
+      const response = await fetch('/api/auth/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({ email, password }),
       });
+      
+      // Handle non-JSON responses
+      const contentType = response.headers.get('content-type');
+      if (!contentType || !contentType.includes('application/json')) {
+        throw new Error('Server returned non-JSON response. Please try again later.');
+      }
       
       const data = await response.json();
       
@@ -49,6 +55,7 @@ export default function Register() {
       // Redirect to login page on success
       router.push('/login?registered=true');
     } catch (err: any) {
+      console.error('Registration error:', err);
       setError(err.message || 'An error occurred during registration');
     } finally {
       setLoading(false);

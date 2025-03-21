@@ -2,6 +2,9 @@ import { findUserByEmail, createUser } from '../../../lib/airtable';
 import { hashPassword } from '../../../lib/auth';
 
 export default async function handler(req, res) {
+  // Set proper content type header
+  res.setHeader('Content-Type', 'application/json');
+  
   if (req.method !== 'POST') {
     return res.status(405).json({ message: 'Method not allowed' });
   }
