@@ -9,7 +9,7 @@ export default function MeshPage() {
   const { data: session, status } = useSession();
   const router = useRouter();
   const [sidebarOpen, setSidebarOpen] = useState(true);
-  const [activeStep, setActiveStep] = useState('project');
+  const [activeStep, setActiveStep] = useState('business');
   const [messages, setMessages] = useState([
     {
       role: 'assistant',
@@ -166,8 +166,8 @@ export default function MeshPage() {
       
       // Set content based on active step and AI response
       // You might want to modify this to extract specific information from the AI response
-      if (activeStep === 'project') {
-        setFileContent(`# Project Analysis\n\n${data.response}`);
+      if (activeStep === 'business') {
+        setFileContent(`# Business Analysis\n\n${data.response}`);
       } else if (activeStep === 'questionnaire') {
         setFileContent(`# Marketing Questionnaire\n\n${data.response}`);
       } else if (activeStep === 'focusgroup') {
@@ -208,8 +208,8 @@ export default function MeshPage() {
     let initialContent = '';
     
     switch(step) {
-      case 'project':
-        initialContent = '# Project Setup\n\nThis is where we analyze your business and website.';
+      case 'business':
+        initialContent = '# Business Analysis\n\nThis is where we analyze your business and website.';
         break;
       case 'questionnaire':
         initialContent = '# Marketing Questionnaire\n\nThis helps us understand your target audience better.';
@@ -353,7 +353,7 @@ export default function MeshPage() {
         }}>
           <nav style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>
             {[
-              { id: 'project', name: 'Project', icon: (
+              { id: 'business', name: 'Business', icon: (
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
                   <polyline points="9 22 9 12 15 12 15 22"></polyline>
@@ -502,7 +502,7 @@ export default function MeshPage() {
               color: 'white',
               margin: 0
             }}>
-              {activeStep === 'project' && 'Project Setup'}
+              {activeStep === 'business' && 'Business Analysis'}
               {activeStep === 'questionnaire' && 'Marketing Questionnaire'}
               {activeStep === 'focusgroup' && 'Virtual Focus Group'}
               {activeStep === 'recommendations' && 'Marketing Recommendations'}
