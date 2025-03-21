@@ -1,4 +1,4 @@
-"use client"; // Add this directive to mark as a Client Component
+"use client";
 
 import Image from "next/image";
 import Link from "next/link";
@@ -10,9 +10,8 @@ export default function Header() {
       top: 0, 
       zIndex: 50, 
       width: '100%', 
-      borderBottom: '1px solid rgba(255,255,255,0.15)', 
-      backgroundColor: 'rgba(10,10,10,0.9)', 
-      backdropFilter: 'blur(8px)' 
+      backgroundColor: '#0a0a0a', 
+      borderBottom: '1px solid rgba(255,255,255,0.15)'
     }}>
       <div style={{ 
         maxWidth: '1200px', 
@@ -23,16 +22,20 @@ export default function Header() {
         justifyContent: 'space-between' 
       }}>
         <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', textDecoration: 'none' }}>
-          <Image 
-            src="/MM.png" 
-            alt="MarketingMesh Logo" 
-            width={40} 
-            height={40} 
-            style={{ borderRadius: '0.5rem' }}
-          />
-          <span style={{ fontSize: '1.25rem', fontWeight: 'bold' }}>
-            <span style={{ color: 'white' }}>MARKETING</span>
-            <span className="gradient-text">MESH</span>
+          <div style={{ width: '40px', height: '40px', borderRadius: '0.5rem', overflow: 'hidden' }}>
+            <Image 
+              src="/MM.png" 
+              alt="MarketingMesh Logo" 
+              width={40} 
+              height={40}
+            />
+          </div>
+          <span style={{ 
+            fontSize: '1.25rem', 
+            fontWeight: 'bold',
+            color: 'white'
+          }}>
+            MARKETING<span className="gradient-text">MESH</span>
           </span>
         </Link>
         
@@ -69,8 +72,30 @@ export default function Header() {
           </Link>
           <Link 
             href="/signup" 
-            className="btn btn-primary"
-            style={{ fontSize: '0.875rem', padding: '0.625rem 1.25rem' }}
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              borderRadius: '9999px',
+              background: 'linear-gradient(135deg, #3dd5c8 0%, #e94e87 50%, #f5a76c 100%)',
+              color: 'white',
+              padding: '0.625rem 1.25rem',
+              fontSize: '0.875rem',
+              fontWeight: '500',
+              boxShadow: '0 4px 14px 0 rgba(61, 213, 200, 0.3)',
+              transition: 'all 0.2s',
+              textDecoration: 'none'
+            }}
+            onMouseOver={(e) => {
+              e.currentTarget.style.opacity = '0.9';
+              e.currentTarget.style.transform = 'translateY(-2px)';
+              e.currentTarget.style.boxShadow = '0 6px 20px 0 rgba(61, 213, 200, 0.4)';
+            }}
+            onMouseOut={(e) => {
+              e.currentTarget.style.opacity = '1';
+              e.currentTarget.style.transform = 'translateY(0)';
+              e.currentTarget.style.boxShadow = '0 4px 14px 0 rgba(61, 213, 200, 0.3)';
+            }}
           >
             Get Started
           </Link>

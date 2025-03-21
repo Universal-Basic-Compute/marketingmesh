@@ -1,57 +1,182 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="font-[family-name:var(--font-geist-sans)]">
+    <div style={{ fontFamily: 'var(--font-geist-sans)' }}>
       {/* Hero Section */}
-      <section className="py-24 md:py-32 overflow-hidden relative bg-gradient">
-        <div className="container mx-auto px-4 text-center relative">
+      <section style={{ 
+        padding: '6rem 0', 
+        position: 'relative', 
+        overflow: 'hidden',
+        backgroundColor: '#0a0a0a'
+      }}>
+        <div style={{ 
+          maxWidth: '1200px', 
+          margin: '0 auto', 
+          padding: '0 1rem', 
+          textAlign: 'center',
+          position: 'relative'
+        }}>
           {/* Background decorative elements */}
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-teal bg-opacity-5 rounded-full blur-3xl -z-10"></div>
-          <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-pink bg-opacity-5 rounded-full blur-3xl -z-10"></div>
-          <div className="absolute top-1/3 left-1/4 w-[300px] h-[300px] bg-orange bg-opacity-5 rounded-full blur-3xl -z-10"></div>
+          <div style={{
+            position: 'absolute',
+            top: 0,
+            left: '50%',
+            transform: 'translateX(-50%)',
+            width: '800px',
+            height: '800px',
+            backgroundColor: 'rgba(61, 213, 200, 0.05)',
+            borderRadius: '50%',
+            filter: 'blur(100px)',
+            zIndex: -1
+          }}></div>
           
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 max-w-4xl mx-auto leading-tight animate-fade-in">
-            A Next-Generation <span className="gradient-text">AI Swarm</span> for Business Growth
+          <h1 style={{
+            fontSize: '2.25rem',
+            fontWeight: 'bold',
+            marginBottom: '1.5rem',
+            maxWidth: '56rem',
+            marginLeft: 'auto',
+            marginRight: 'auto',
+            lineHeight: '1.2',
+            color: 'white'
+          }}>
+            A Next-Generation <span style={{ color: '#3dd5c8' }}>AI</span> <span style={{ color: '#e94e87' }}>Swarm</span> for Business Growth
           </h1>
-          <p className="text-xl md:text-2xl text-white opacity-70 mb-12 max-w-2xl mx-auto animate-fade-in" style={{animationDelay: "0.1s"}}>
+          <p style={{
+            fontSize: '1.25rem',
+            color: 'rgba(255, 255, 255, 0.7)',
+            marginBottom: '3rem',
+            maxWidth: '42rem',
+            marginLeft: 'auto',
+            marginRight: 'auto'
+          }}>
             Analyze websites, create virtual focus groups, develop targeted marketing campaigns, and execute them across platforms—all with minimal human intervention.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in" style={{animationDelay: "0.2s"}}>
+          <div style={{
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '1rem',
+            justifyContent: 'center',
+            marginBottom: '3rem'
+          }} className="sm:flex-row">
             <Link
               href="/signup"
-              className="btn btn-primary"
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                borderRadius: '9999px',
+                background: 'linear-gradient(135deg, #3dd5c8 0%, #e94e87 50%, #f5a76c 100%)',
+                color: 'white',
+                padding: '0.875rem 2rem',
+                fontSize: '1.125rem',
+                fontWeight: '500',
+                boxShadow: '0 4px 14px 0 rgba(61, 213, 200, 0.3)',
+                transition: 'all 0.2s',
+                textDecoration: 'none'
+              }}
+              onMouseOver={(e) => {
+                e.currentTarget.style.opacity = '0.9';
+                e.currentTarget.style.transform = 'translateY(-2px)';
+                e.currentTarget.style.boxShadow = '0 6px 20px 0 rgba(61, 213, 200, 0.4)';
+              }}
+              onMouseOut={(e) => {
+                e.currentTarget.style.opacity = '1';
+                e.currentTarget.style.transform = 'translateY(0)';
+                e.currentTarget.style.boxShadow = '0 4px 14px 0 rgba(61, 213, 200, 0.3)';
+              }}
             >
               Get Started
             </Link>
             <Link
               href="/demo"
-              className="btn btn-secondary"
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                borderRadius: '9999px',
+                backgroundColor: 'transparent',
+                border: '1px solid rgba(255, 255, 255, 0.2)',
+                color: 'white',
+                padding: '0.875rem 2rem',
+                fontSize: '1.125rem',
+                fontWeight: '500',
+                transition: 'all 0.2s',
+                textDecoration: 'none'
+              }}
+              onMouseOver={(e) => {
+                e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.05)';
+              }}
+              onMouseOut={(e) => {
+                e.currentTarget.style.backgroundColor = 'transparent';
+              }}
             >
               Request Demo
             </Link>
           </div>
           
           {/* Trusted by logos */}
-          <div className="mt-20 animate-fade-in" style={{animationDelay: "0.3s"}}>
-            <p className="text-sm text-muted-foreground mb-6">TRUSTED BY INNOVATIVE COMPANIES</p>
-            <div className="flex flex-wrap justify-center gap-x-12 gap-y-8">
-              {['Company 1', 'Company 2', 'Company 3', 'Company 4', 'Company 5'].map((company, i) => (
-                <div key={i} className="text-foreground/30 font-bold text-xl">
-                  {company}
-                </div>
-              ))}
+          <div style={{ marginTop: '5rem' }}>
+            <p style={{ 
+              fontSize: '0.875rem', 
+              color: 'rgba(255, 255, 255, 0.5)',
+              marginBottom: '1.5rem',
+              textTransform: 'uppercase',
+              letterSpacing: '0.05em'
+            }}>
+              TRUSTED BY INNOVATIVE COMPANIES
+            </p>
+            <div style={{ 
+              display: 'flex', 
+              flexWrap: 'wrap', 
+              justifyContent: 'center', 
+              gap: '3rem',
+              color: 'rgba(255, 255, 255, 0.3)',
+              fontWeight: 'bold',
+              fontSize: '1.25rem'
+            }}>
+              <div>Company 1</div>
+              <div>Company 2</div>
+              <div>Company 3</div>
+              <div>Company 4</div>
+              <div>Company 5</div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Features Section */}
-      <section className="py-24 bg-muted">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-5xl font-bold mb-6 text-center">Core Capabilities</h2>
-          <p className="text-xl text-foreground/70 mb-16 text-center max-w-2xl mx-auto">
+      {/* Core Capabilities Section */}
+      <section style={{ 
+        padding: '6rem 0', 
+        backgroundColor: '#1a2234'
+      }}>
+        <div style={{ 
+          maxWidth: '1200px', 
+          margin: '0 auto', 
+          padding: '0 1rem'
+        }}>
+          <h2 style={{
+            fontSize: '2.5rem',
+            fontWeight: 'bold',
+            marginBottom: '1.5rem',
+            textAlign: 'center',
+            color: 'white'
+          }}>
+            Core Capabilities
+          </h2>
+          <p style={{
+            fontSize: '1.25rem',
+            color: 'rgba(255, 255, 255, 0.7)',
+            marginBottom: '4rem',
+            textAlign: 'center',
+            maxWidth: '42rem',
+            marginLeft: 'auto',
+            marginRight: 'auto'
+          }}>
             Our AI-powered platform provides everything you need to create and execute effective marketing campaigns.
           </p>
           
