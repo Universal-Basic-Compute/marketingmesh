@@ -5,6 +5,44 @@ import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 
+// Function to fetch project content
+const fetchProjectContent = async (email: string, path?: string) => {
+  try {
+    // Format the email for use as project ID
+    const formattedEmail = email.replace('@', '_at_').replace(/\./g, '_dot_');
+    
+    // Construct the API URL
+    const baseUrl = process.env.NODE_ENV === 'development' 
+      ? 'http://localhost:5000' 
+      : 'https://api.kinos-engine.ai';
+    
+    let url = `${baseUrl}/projects/marketingmesh/${formattedEmail}/content`;
+    
+    // Add path parameter if provided
+    if (path) {
+      url += `?path=${encodeURIComponent(path)}`;
+    }
+    
+    console.log(`Fetching project content from: ${url}`);
+    
+    // Make the API request
+    const response = await fetch(url, {
+      headers: {
+        'Authorization': `Bearer ${process.env.NEXT_PUBLIC_KINOS_API_KEY}`
+      }
+    });
+    
+    if (!response.ok) {
+      throw new Error(`Failed to fetch project content: ${response.status}`);
+    }
+    
+    return await response.json();
+  } catch (error) {
+    console.error('Error fetching project content:', error);
+    throw error;
+  }
+};
+
 export default function MeshPage() {
   const { data: session, status } = useSession();
   const router = useRouter();
@@ -22,6 +60,8 @@ export default function MeshPage() {
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const [ttsEnabled, setTtsEnabled] = useState(true);
   const audioRef = useRef<HTMLAudioElement | null>(null);
+  const [businessContent, setBusinessContent] = useState<any>(null);
+  const [businessContentLoading, setBusinessContentLoading] = useState(false);
   
   // Redirect if not authenticated
   useEffect(() => {
@@ -62,6 +102,27 @@ export default function MeshPage() {
       playTextToSpeech(messages[0].content);
     }
   }, []);  // Empty dependency array means this runs once when component mounts
+  
+  // Fetch business content when the component mounts or when the active step changes
+  useEffect(() => {
+    const fetchBusinessData = async () => {
+      if (activeStep === 'business' && session?.user?.email) {
+        setBusinessContentLoading(true);
+        try {
+          const content = await fetchProjectContent(session.user.email, 'memories/business');
+          setBusinessContent(content);
+        } catch (error) {
+          console.error('Failed to fetch business content:', error);
+          // Set a default message if the content can't be fetched
+          setFileContent('# Business Analysis\n\nUnable to fetch business data. Please try again later.');
+        } finally {
+          setBusinessContentLoading(false);
+        }
+      }
+    };
+    
+    fetchBusinessData();
+  }, [activeStep, session?.user?.email]);
   
   // Clean up audio when component unmounts
   useEffect(() => {
@@ -193,6 +254,11 @@ export default function MeshPage() {
   
   const handleStepChange = (step: string) => {
     setActiveStep(step);
+    
+    // Reset business content if changing away from business step
+    if (step !== 'business') {
+      setBusinessContent(null);
+    }
     
     // Add a system message when changing steps
     const systemMessage = {
@@ -562,7 +628,107 @@ export default function MeshPage() {
               color: 'white',
               maxWidth: 'none'
             }}>
-              {fileContent ? (
+              {businessContentLoading ? (
+                <div style={{ textAlign: 'center', padding: '2rem' }}>
+                  <div style={{ 
+                    display: 'inline-block',
+                    width: '2rem',
+                    height: '2rem',
+                    border: '3px solid rgba(61, 213, 200, 0.2)',
+                    borderTop: '3px solid #3dd5c8',
+                    borderRadius: '50%',
+                    animation: 'spin 1s linear infinite',
+                    marginBottom: '1rem'
+                  }}></div>
+                  <p>Loading business data...</p>
+                </div>
+              ) : activeStep === 'business' && businessContent ? (
+                <div>
+                  <h1 style={{ fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '1.5rem', color: 'white' }}>
+                    Business Analysis
+                  </h1>
+                  
+                  {businessContent.is_directory && businessContent.files ? (
+                    <div>
+                      <p style={{ marginBottom: '1rem' }}>
+                        Found {businessContent.files.length} file(s) in your business folder:
+                      </p>
+                      
+                      {businessContent.files.map((file: any, index: number) => (
+                        <div key={index} style={{ 
+                          marginBottom: '1.5rem',
+                          padding: '1rem',
+                          backgroundColor: 'rgba(26, 34, 52, 0.3)',
+                          borderRadius: '0.375rem',
+                          border: '1px solid rgba(255, 255, 255, 0.1)'
+                        }}>
+                          <h3 style={{ 
+                            fontSize: '1.125rem', 
+                            fontWeight: '600', 
+                            marginBottom: '0.5rem',
+                            display: 'flex',
+                            alignItems: 'center'
+                          }}>
+                            <svg 
+                              xmlns="http://www.w3.org/2000/svg" 
+                              width="18" 
+                              height="18" 
+                              viewBox="0 0 24 24" 
+                              fill="none" 
+                              stroke="currentColor" 
+                              strokeWidth="2" 
+                              strokeLinecap="round" 
+                              strokeLinejoin="round"
+                              style={{ marginRight: '0.5rem' }}
+                            >
+                              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                              <polyline points="14 2 14 8 20 8"></polyline>
+                              <line x1="16" y1="13" x2="8" y2="13"></line>
+                              <line x1="16" y1="17" x2="8" y2="17"></line>
+                              <polyline points="10 9 9 9 8 9"></polyline>
+                            </svg>
+                            {file.path.split('/').pop()}
+                          </h3>
+                          <div style={{ 
+                            backgroundColor: 'rgba(0, 0, 0, 0.2)',
+                            padding: '0.75rem',
+                            borderRadius: '0.25rem',
+                            fontFamily: 'var(--font-geist-mono)',
+                            fontSize: '0.875rem',
+                            whiteSpace: 'pre-wrap',
+                            overflowX: 'auto'
+                          }}>
+                            {file.is_binary ? (
+                              <p>Binary file - preview not available</p>
+                            ) : (
+                              file.content
+                            )}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  ) : businessContent.is_directory === false ? (
+                    <div>
+                      <h3 style={{ fontSize: '1.125rem', fontWeight: '600', marginBottom: '0.5rem' }}>
+                        {businessContent.path.split('/').pop()}
+                      </h3>
+                      <div style={{ 
+                        backgroundColor: 'rgba(0, 0, 0, 0.2)',
+                        padding: '0.75rem',
+                        borderRadius: '0.25rem',
+                        fontFamily: 'var(--font-geist-mono)',
+                        fontSize: '0.875rem',
+                        whiteSpace: 'pre-wrap',
+                        overflowX: 'auto'
+                      }}>
+                        {businessContent.content}
+                      </div>
+                    </div>
+                  ) : (
+                    <p>No business data found. Start a conversation to analyze your business.</p>
+                  )}
+                </div>
+              ) : fileContent ? (
                 <div>
                   {fileContent.split('\n').map((line, index) => {
                     if (line.startsWith('# ')) {
@@ -842,6 +1008,10 @@ export default function MeshPage() {
         @keyframes bounce {
           from { transform: translateY(0); }
           to { transform: translateY(-4px); }
+        }
+        @keyframes spin {
+          from { transform: rotate(0deg); }
+          to { transform: rotate(360deg); }
         }
       `}</style>
     </div>
