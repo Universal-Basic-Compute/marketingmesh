@@ -64,7 +64,7 @@ export default function Home() {
             marginBottom: '3rem'
           }} className="sm:flex-row">
             <Link
-              href="/signup"
+              href="/register"
               style={{
                 display: 'inline-flex',
                 alignItems: 'center',
@@ -315,7 +315,7 @@ export default function Home() {
               </ul>
               
               <Link
-                href="/signup?plan=basic"
+                href="/register?plan=basic"
                 style={{
                   display: 'block',
                   width: '100%',
@@ -377,7 +377,7 @@ export default function Home() {
               </ul>
               
               <Link
-                href="/signup?plan=growth"
+                href="/register?plan=growth"
                 style={{
                   display: 'block',
                   width: '100%',
@@ -555,7 +555,7 @@ export default function Home() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
-              href="/signup"
+              href="/register"
               className="btn btn-primary bg-white text-dark"
             >
               Get Started Today
