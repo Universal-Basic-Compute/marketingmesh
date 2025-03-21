@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from 'react';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
+import ReactMarkdown from 'react-markdown';
 
 // Function to fetch project content
 const fetchProjectContent = async (email: string, path?: string) => {
@@ -870,10 +871,32 @@ export default function MeshPage() {
                       }}>Assistant</span>
                     </div>
                   )}
-                  <p style={{
+                  <div style={{
                     fontSize: '0.875rem',
                     margin: 0
-                  }}>{message.content}</p>
+                  }}>
+                    <ReactMarkdown
+                      components={{
+                        p: ({ node, ...props }) => <p style={{ margin: '0.5rem 0' }} {...props} />,
+                        h1: ({ node, ...props }) => <h1 style={{ fontSize: '1.25rem', fontWeight: 'bold', margin: '0.75rem 0' }} {...props} />,
+                        h2: ({ node, ...props }) => <h2 style={{ fontSize: '1.125rem', fontWeight: 'bold', margin: '0.75rem 0' }} {...props} />,
+                        h3: ({ node, ...props }) => <h3 style={{ fontSize: '1rem', fontWeight: 'bold', margin: '0.5rem 0' }} {...props} />,
+                        ul: ({ node, ...props }) => <ul style={{ paddingLeft: '1.5rem', margin: '0.5rem 0' }} {...props} />,
+                        ol: ({ node, ...props }) => <ol style={{ paddingLeft: '1.5rem', margin: '0.5rem 0' }} {...props} />,
+                        li: ({ node, ...props }) => <li style={{ margin: '0.25rem 0' }} {...props} />,
+                        a: ({ node, ...props }) => <a style={{ color: '#3dd5c8', textDecoration: 'underline' }} {...props} />,
+                        code: ({ node, inline, ...props }) => 
+                          inline ? 
+                            <code style={{ backgroundColor: 'rgba(0,0,0,0.2)', padding: '0.1rem 0.2rem', borderRadius: '0.2rem', fontFamily: 'var(--font-geist-mono)' }} {...props} /> : 
+                            <code style={{ display: 'block', backgroundColor: 'rgba(0,0,0,0.2)', padding: '0.5rem', borderRadius: '0.2rem', fontFamily: 'var(--font-geist-mono)', overflowX: 'auto', margin: '0.5rem 0' }} {...props} />,
+                        blockquote: ({ node, ...props }) => <blockquote style={{ borderLeft: '3px solid rgba(61, 213, 200, 0.5)', paddingLeft: '1rem', margin: '0.5rem 0', color: 'rgba(255,255,255,0.8)' }} {...props} />,
+                        hr: ({ node, ...props }) => <hr style={{ border: 'none', borderTop: '1px solid rgba(255,255,255,0.2)', margin: '1rem 0' }} {...props} />,
+                        img: ({ node, ...props }) => <img style={{ maxWidth: '100%', height: 'auto', borderRadius: '0.25rem' }} {...props} />
+                      }}
+                    >
+                      {message.content}
+                    </ReactMarkdown>
+                  </div>
                 </div>
               )}
             </div>
