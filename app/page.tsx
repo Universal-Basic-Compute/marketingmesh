@@ -72,12 +72,14 @@ export default function Home() {
                 borderRadius: '9999px',
                 background: 'linear-gradient(135deg, #3dd5c8 0%, #e94e87 50%, #f5a76c 100%)',
                 color: 'white',
-                padding: '0.875rem 2rem',
-                fontSize: '1.125rem',
+                padding: '0.75rem 1.75rem', // Smaller padding
+                fontSize: '1rem', // Smaller font size
                 fontWeight: '500',
                 boxShadow: '0 4px 14px 0 rgba(61, 213, 200, 0.3)',
                 transition: 'all 0.2s',
-                textDecoration: 'none'
+                textDecoration: 'none',
+                maxWidth: '200px', // Add max width
+                margin: '0 auto' // Center the button
               }}
               onMouseOver={(e) => {
                 e.currentTarget.style.opacity = '0.9';
@@ -102,11 +104,13 @@ export default function Home() {
                 backgroundColor: 'transparent',
                 border: '1px solid rgba(255, 255, 255, 0.2)',
                 color: 'white',
-                padding: '0.875rem 2rem',
-                fontSize: '1.125rem',
+                padding: '0.75rem 1.75rem', // Smaller padding
+                fontSize: '1rem', // Smaller font size
                 fontWeight: '500',
                 transition: 'all 0.2s',
-                textDecoration: 'none'
+                textDecoration: 'none',
+                maxWidth: '200px', // Add max width
+                margin: '0 auto' // Center the button
               }}
               onMouseOver={(e) => {
                 e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.05)';
@@ -118,34 +122,7 @@ export default function Home() {
               Request Demo
             </Link>
           </div>
-          
-          {/* Trusted by logos */}
-          <div style={{ marginTop: '5rem' }}>
-            <p style={{ 
-              fontSize: '0.875rem', 
-              color: 'rgba(255, 255, 255, 0.5)',
-              marginBottom: '1.5rem',
-              textTransform: 'uppercase',
-              letterSpacing: '0.05em'
-            }}>
-              TRUSTED BY INNOVATIVE COMPANIES
-            </p>
-            <div style={{ 
-              display: 'flex', 
-              flexWrap: 'wrap', 
-              justifyContent: 'center', 
-              gap: '3rem',
-              color: 'rgba(255, 255, 255, 0.3)',
-              fontWeight: 'bold',
-              fontSize: '1.25rem'
-            }}>
-              <div>Company 1</div>
-              <div>Company 2</div>
-              <div>Company 3</div>
-              <div>Company 4</div>
-              <div>Company 5</div>
-            </div>
-          </div>
+          {/* Trusted by logos section removed */}
         </div>
       </section>
 
