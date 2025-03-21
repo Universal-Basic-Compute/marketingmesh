@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { signIn } from 'next-auth/react';
 import Link from 'next/link';
 
 export default function Register() {
@@ -32,6 +33,7 @@ export default function Register() {
     try {
       setLoading(true);
       
+      // 1. Register the user
       const response = await fetch('/api/auth/register', {
         method: 'POST',
         headers: {
@@ -54,8 +56,19 @@ export default function Register() {
         throw new Error(data.message || 'Registration failed');
       }
       
-      // Redirect to login page on success
-      router.push('/login?registered=true');
+      // 2. Automatically sign in the user after successful registration
+      const signInResult = await signIn('credentials', {
+        redirect: false,
+        email,
+        password,
+      });
+      
+      if (signInResult?.error) {
+        throw new Error(signInResult.error || 'Failed to sign in after registration');
+      }
+      
+      // 3. Redirect to dashboard on success
+      router.push('/dashboard');
     } catch (err: any) {
       console.error('Registration error:', err);
       if (err.message.includes('fetch')) {
