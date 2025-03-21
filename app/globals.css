@@ -236,41 +236,41 @@ p {
 
 /* Responsive utilities */
 @media (min-width: 768px) {
-  .md\:flex {
+  .md:flex {
     display: flex;
   }
   
-  .md\:hidden {
+  .md:hidden {
     display: none;
   }
   
-  .md\:text-6xl {
+  .md:text-6xl {
     font-size: 3.75rem;
   }
   
-  .md\:grid-cols-3 {
+  .md:grid-cols-3 {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
   
-  .md\:grid-cols-4 {
+  .md:grid-cols-4 {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
   
-  .md\:flex-row {
+  .md:flex-row {
     flex-direction: row;
   }
   
-  .md\:justify-between {
+  .md:justify-between {
     justify-content: space-between;
   }
   
-  .md\:mt-0 {
+  .md:mt-0 {
     margin-top: 0;
   }
 }
 
 @media (min-width: 1024px) {
-  .lg\:grid-cols-4 {
+  .lg:grid-cols-4 {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 }
