@@ -20,7 +20,7 @@ export async function POST(request: Request) {
     
     // Parse the request body
     const body = await request.json();
-    const { content, attachments, images, model, historyLength } = body;
+    const { content, mode, attachments, images, model, historyLength } = body;
     
     if (!content) {
       return NextResponse.json(
@@ -29,8 +29,9 @@ export async function POST(request: Request) {
       );
     }
     
-    // Send the message to Kinos
+    // Send the message to Kinos with the mode parameter
     const response = await sendMessageToKinos(email, content, {
+      mode, // Pass the mode parameter
       attachments,
       images,
       model,

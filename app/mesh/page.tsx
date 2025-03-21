@@ -132,7 +132,7 @@ export default function MeshPage() {
     setIsLoading(true);
     
     try {
-      // Send the message to Kinos Engine API
+      // Send the message to Kinos Engine API with the current step as the mode
       const response = await fetch('/api/kinos/message', {
         method: 'POST',
         headers: {
@@ -140,6 +140,7 @@ export default function MeshPage() {
         },
         body: JSON.stringify({ 
           content: inputMessage,
+          mode: activeStep, // Add the current step as the mode parameter
           // You can add attachments, images, model, historyLength here if needed
         }),
       });
