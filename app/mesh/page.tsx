@@ -28,6 +28,22 @@ export default function MeshPage() {
     }
   }, [status, router]);
   
+  // Hide footer when this component mounts
+  useEffect(() => {
+    const footer = document.querySelector('footer');
+    if (footer) {
+      footer.style.display = 'none';
+    }
+    
+    // Show footer again when component unmounts
+    return () => {
+      const footer = document.querySelector('footer');
+      if (footer) {
+        footer.style.display = 'block';
+      }
+    };
+  }, []);
+  
   // Auto-scroll to bottom of messages only when a new user or AI message is added
   useEffect(() => {
     // Only scroll if the last message is from user or assistant (not system)
@@ -136,7 +152,13 @@ export default function MeshPage() {
       display: 'flex',
       height: '100vh',
       backgroundColor: '#0a0a0a',
-      overflow: 'hidden'
+      overflow: 'hidden',
+      position: 'fixed',
+      top: 0,
+      left: 0,
+      right: 0,
+      bottom: 0,
+      zIndex: 40
     }}>
       {/* Sidebar */}
       <div style={{
@@ -224,7 +246,8 @@ export default function MeshPage() {
           flex: 1,
           overflowY: 'auto',
           padding: '1rem 0.5rem',
-          height: 'calc(100vh - 136px)' // Subtract header and footer heights
+          height: 'calc(100vh - 136px)', // Subtract header and footer heights
+          position: 'relative'
         }}>
           <nav style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>
             {[
@@ -414,7 +437,9 @@ export default function MeshPage() {
           flex: 1,
           overflowY: 'auto',
           padding: '1.5rem',
-          backgroundColor: 'rgba(26, 34, 52, 0.3)'
+          backgroundColor: 'rgba(26, 34, 52, 0.3)',
+          height: 'calc(100vh - 64px)', // Subtract header height
+          position: 'relative'
         }}>
           <div style={{
             backgroundColor: '#111111',
@@ -482,7 +507,8 @@ export default function MeshPage() {
           flexDirection: 'column',
           gap: '1rem',
           height: 'calc(100vh - 120px)', // Subtract header and input area heights
-          paddingBottom: '60px' // Add padding to ensure messages aren't hidden behind input
+          paddingBottom: '60px', // Add padding to ensure messages aren't hidden behind input
+          position: 'relative'
         }}>
           {messages.map((message, index) => (
             <div 
