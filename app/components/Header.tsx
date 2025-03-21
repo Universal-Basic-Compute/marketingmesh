@@ -43,7 +43,14 @@ export default function Header() {
           </span>
         </Link>
         
-        <nav style={{ display: 'none', alignItems: 'center', gap: '2rem' }} className="md:flex">
+        <nav style={{ 
+          display: 'flex', 
+          alignItems: 'center', 
+          gap: '2rem',
+          '@media (max-width: 768px)': {
+            display: 'none'
+          }
+        }}>
           <Link href="/features" style={{ color: 'rgba(255,255,255,0.8)', textDecoration: 'none', fontWeight: 500, transition: 'color 0.2s' }} onMouseOver={(e) => e.currentTarget.style.color = '#3dd5c8'} onMouseOut={(e) => e.currentTarget.style.color = 'rgba(255,255,255,0.8)'}>
             Features
           </Link>
@@ -65,14 +72,13 @@ export default function Header() {
                 <Link 
                   href="/dashboard" 
                   style={{ 
-                    display: 'none', 
+                    display: 'block', 
                     color: 'rgba(255,255,255,0.8)', 
                     textDecoration: 'none', 
                     fontWeight: 500, 
                     transition: 'color 0.2s',
                     marginRight: '1rem'
                   }} 
-                  className="sm:block"
                   onMouseOver={(e) => e.currentTarget.style.color = '#3dd5c8'} 
                   onMouseOut={(e) => e.currentTarget.style.color = 'rgba(255,255,255,0.8)'}
                 >
@@ -81,14 +87,13 @@ export default function Header() {
                 <Link 
                   href="/mesh" 
                   style={{ 
-                    display: 'none', 
+                    display: 'block', 
                     color: 'rgba(255,255,255,0.8)', 
                     textDecoration: 'none', 
                     fontWeight: 500, 
                     transition: 'color 0.2s',
                     marginRight: '1rem'
                   }} 
-                  className="sm:block"
                   onMouseOver={(e) => e.currentTarget.style.color = '#e94e87'} 
                   onMouseOut={(e) => e.currentTarget.style.color = 'rgba(255,255,255,0.8)'}
                 >
@@ -97,13 +102,12 @@ export default function Header() {
                 <Link 
                   href="/mesh" 
                   style={{ 
-                    display: 'none', 
+                    display: 'block', 
                     color: 'rgba(255,255,255,0.8)', 
                     textDecoration: 'none', 
                     fontWeight: 500, 
                     transition: 'color 0.2s' 
                   }} 
-                  className="sm:block"
                   onMouseOver={(e) => e.currentTarget.style.color = '#f5a76c'} 
                   onMouseOut={(e) => e.currentTarget.style.color = 'rgba(255,255,255,0.8)'}
                 >
@@ -141,13 +145,13 @@ export default function Header() {
               <Link 
                 href="/login" 
                 style={{ 
-                  display: 'none', 
+                  display: 'block', 
                   color: 'rgba(255,255,255,0.8)', 
                   textDecoration: 'none', 
                   fontWeight: 500, 
-                  transition: 'color 0.2s' 
+                  transition: 'color 0.2s',
+                  marginRight: '1rem'
                 }} 
-                className="sm:block"
                 onMouseOver={(e) => e.currentTarget.style.color = '#e94e87'} 
                 onMouseOut={(e) => e.currentTarget.style.color = 'rgba(255,255,255,0.8)'}
               >
