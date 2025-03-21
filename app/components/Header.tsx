@@ -85,13 +85,29 @@ export default function Header() {
                     color: 'rgba(255,255,255,0.8)', 
                     textDecoration: 'none', 
                     fontWeight: 500, 
-                    transition: 'color 0.2s' 
+                    transition: 'color 0.2s',
+                    marginRight: '1rem'
                   }} 
                   className="sm:block"
                   onMouseOver={(e) => e.currentTarget.style.color = '#e94e87'} 
                   onMouseOut={(e) => e.currentTarget.style.color = 'rgba(255,255,255,0.8)'}
                 >
                   Marketing Mesh
+                </Link>
+                <Link 
+                  href="/mesh" 
+                  style={{ 
+                    display: 'none', 
+                    color: 'rgba(255,255,255,0.8)', 
+                    textDecoration: 'none', 
+                    fontWeight: 500, 
+                    transition: 'color 0.2s' 
+                  }} 
+                  className="sm:block"
+                  onMouseOver={(e) => e.currentTarget.style.color = '#f5a76c'} 
+                  onMouseOut={(e) => e.currentTarget.style.color = 'rgba(255,255,255,0.8)'}
+                >
+                  My Mesh
                 </Link>
               </>
               <button
