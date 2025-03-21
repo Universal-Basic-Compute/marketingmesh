@@ -15,19 +15,7 @@ export default function Footer() {
         margin: '0 auto', 
         padding: '0 1rem' 
       }}>
-        <div style={{ 
-          display: 'grid', 
-          gridTemplateColumns: 'repeat(1, 1fr)',
-          gap: '2.5rem'
-        }}>
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(1, 1fr)',
-            gap: '2.5rem',
-            '@media (min-width: 768px)': {
-              gridTemplateColumns: 'repeat(4, 1fr)'
-            }
-          }}>
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
           <div>
             <Link href="/" style={{ 
               display: 'flex', 
@@ -111,8 +99,8 @@ export default function Footer() {
           flexDirection: 'column', 
           alignItems: 'center',
           textAlign: 'center'
-        }}>
-          <p style={{ fontSize: '0.875rem', color: '#a0aec0', marginBottom: '1.5rem' }}>
+        }} className="md:flex-row md:justify-between">
+          <p style={{ fontSize: '0.875rem', color: '#a0aec0', marginBottom: '1.5rem' }} className="md:mb-0">
             &copy; {new Date().getFullYear()} MarketingMesh. All rights reserved.
           </p>
           <div style={{ 
