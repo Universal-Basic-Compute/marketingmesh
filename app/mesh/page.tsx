@@ -20,7 +20,7 @@ export default function MeshPage() {
   const [isLoading, setIsLoading] = useState(false);
   const [fileContent, setFileContent] = useState('# Welcome to MarketingMesh\n\nSelect a step from the sidebar to begin your marketing journey.');
   const messagesEndRef = useRef<HTMLDivElement>(null);
-  const [ttsEnabled, setTtsEnabled] = useState(false);
+  const [ttsEnabled, setTtsEnabled] = useState(true);
   const audioRef = useRef<HTMLAudioElement | null>(null);
   
   // Redirect if not authenticated
@@ -55,6 +55,14 @@ export default function MeshPage() {
     }
   }, [messages]);
   
+  // Play welcome message when component mounts
+  useEffect(() => {
+    // Play the welcome message when the component mounts
+    if (messages.length > 0 && messages[0].role === 'assistant') {
+      playTextToSpeech(messages[0].content);
+    }
+  }, []);  // Empty dependency array means this runs once when component mounts
+  
   // Clean up audio when component unmounts
   useEffect(() => {
     return () => {
@@ -70,6 +78,8 @@ export default function MeshPage() {
     if (!ttsEnabled) return;
     
     try {
+      console.log("Attempting to play TTS for text:", text.substring(0, 50) + "...");
+      
       const response = await fetch('/api/kinos/tts', {
         method: 'POST',
         headers: {
@@ -79,6 +89,8 @@ export default function MeshPage() {
       });
       
       if (!response.ok) {
+        const errorText = await response.text();
+        console.error(`TTS request failed with status ${response.status}:`, errorText);
         throw new Error(`TTS request failed with status ${response.status}`);
       }
       
@@ -95,8 +107,14 @@ export default function MeshPage() {
       const audio = new Audio(url);
       audioRef.current = audio;
       
+      // Add event listeners for debugging
+      audio.addEventListener('play', () => console.log('TTS audio started playing'));
+      audio.addEventListener('ended', () => console.log('TTS audio finished playing'));
+      audio.addEventListener('error', (e) => console.error('TTS audio error:', e));
+      
       // Play the audio
-      audio.play();
+      console.log("Playing TTS audio...");
+      await audio.play();
     } catch (error) {
       console.error('Error playing TTS:', error);
     }
@@ -142,9 +160,8 @@ export default function MeshPage() {
       setMessages(prev => [...prev, aiResponse]);
       
       // Play the AI response using TTS
-      if (ttsEnabled) {
-        playTextToSpeech(data.response);
-      }
+      // The playTextToSpeech function will check ttsEnabled internally
+      playTextToSpeech(data.response);
       
       // Set content based on active step and AI response
       // You might want to modify this to extract specific information from the AI response
