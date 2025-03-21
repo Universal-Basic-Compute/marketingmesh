@@ -1,10 +1,9 @@
 import NextAuth from 'next-auth';
-export const authOptions = 
 import CredentialsProvider from 'next-auth/providers/credentials';
 import { findUserByEmail } from '../../../../lib/airtable';
 import { verifyPassword } from '../../../../lib/auth';
 
-const handler = ({
+export const authOptions = {
   providers: [
     CredentialsProvider({
       name: 'Credentials',
@@ -67,7 +66,7 @@ const handler = ({
   },
   debug: process.env.NODE_ENV === 'development',
   secret: process.env.NEXTAUTH_SECRET,
-});
+};
 
-export const { GET, POST } = NextAuth(authOptions);
+const handler = NextAuth(authOptions);
 export { handler as GET, handler as POST };
