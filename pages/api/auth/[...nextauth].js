@@ -13,6 +13,11 @@ export default NextAuth({
       },
       async authorize(credentials) {
         try {
+          // Check if credentials are provided
+          if (!credentials?.email || !credentials?.password) {
+            return null;
+          }
+
           const user = await findUserByEmail(credentials.email);
           
           if (!user) {
@@ -48,7 +53,9 @@ export default NextAuth({
       return token;
     },
     async session({ session, token }) {
-      session.user.id = token.id;
+      if (session.user) {
+        session.user.id = token.id;
+      }
       return session;
     }
   },
@@ -57,5 +64,6 @@ export default NextAuth({
     signOut: '/',
     error: '/login',
   },
-  secret: process.env.NEXTAUTH_SECRET,
+  debug: process.env.NODE_ENV === 'development',
+  secret: process.env.NEXTAUTH_SECRET || 'your-fallback-secret-key-for-development',
 });
