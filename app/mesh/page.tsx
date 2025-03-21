@@ -64,29 +64,59 @@ export default function MeshPage() {
     setInputMessage('');
     setIsLoading(true);
     
-    // Simulate AI response
-    setTimeout(() => {
-      const response = {
-        role: 'assistant',
-        content: `I've analyzed your input: "${inputMessage}". Let me help you with that.`
-      };
+    try {
+      // Send the message to Kinos Engine API
+      const response = await fetch('/api/kinos/message', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ 
+          content: inputMessage,
+          // You can add attachments, images, model, historyLength here if needed
+        }),
+      });
       
-      // Set simple content based on active step
-      if (activeStep === 'project') {
-        setFileContent(`# Project Analysis\n\nBased on your input, here's a brief analysis of your project.`);
-      } else if (activeStep === 'questionnaire') {
-        setFileContent(`# Marketing Questionnaire\n\nHere's a simple questionnaire to help understand your marketing needs.`);
-      } else if (activeStep === 'focusgroup') {
-        setFileContent(`# Virtual Focus Group\n\nHere are some sample personas that represent your target audience.`);
-      } else if (activeStep === 'recommendations') {
-        setFileContent(`# Marketing Recommendations\n\nBased on our analysis, here are some key recommendations for your marketing strategy.`);
-      } else if (activeStep === 'campaigns') {
-        setFileContent(`# Campaign Ideas\n\nHere are some campaign concepts that would work well for your business.`);
+      if (!response.ok) {
+        const errorText = await response.text();
+        throw new Error(`API error (${response.status}): ${errorText}`);
       }
       
-      setMessages(prev => [...prev, response]);
+      const data = await response.json();
+      
+      // Add AI response to chat
+      const aiResponse = {
+        role: 'assistant',
+        content: data.response
+      };
+      
+      setMessages(prev => [...prev, aiResponse]);
+      
+      // Set content based on active step and AI response
+      // You might want to modify this to extract specific information from the AI response
+      if (activeStep === 'project') {
+        setFileContent(`# Project Analysis\n\n${data.response}`);
+      } else if (activeStep === 'questionnaire') {
+        setFileContent(`# Marketing Questionnaire\n\n${data.response}`);
+      } else if (activeStep === 'focusgroup') {
+        setFileContent(`# Virtual Focus Group\n\n${data.response}`);
+      } else if (activeStep === 'recommendations') {
+        setFileContent(`# Marketing Recommendations\n\n${data.response}`);
+      } else if (activeStep === 'campaigns') {
+        setFileContent(`# Campaign Ideas\n\n${data.response}`);
+      }
+    } catch (error) {
+      console.error('Error sending message:', error);
+      
+      // Add error message to chat
+      const errorMessage = {
+        role: 'system',
+        content: `Error: ${error.message || 'Failed to get response'}`
+      };
+      setMessages(prev => [...prev, errorMessage]);
+    } finally {
       setIsLoading(false);
-    }, 1000);
+    }
   };
   
   const handleStepChange = (step: string) => {
