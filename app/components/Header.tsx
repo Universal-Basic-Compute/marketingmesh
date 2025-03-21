@@ -28,7 +28,7 @@ export default function Header() {
         <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', textDecoration: 'none' }}>
           <div style={{ width: '40px', height: '40px', borderRadius: '0.5rem', overflow: 'hidden' }}>
             <Image 
-              src="/MM.png" 
+              src="/logo.png" 
               alt="MarketingMesh Logo" 
               width={40} 
               height={40}

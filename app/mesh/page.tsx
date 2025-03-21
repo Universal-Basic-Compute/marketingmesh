@@ -398,7 +398,7 @@ export default function MeshPage() {
             width: sidebarOpen ? 'auto' : '100%'
           }}>
             <Image 
-              src="/MM.png" 
+              src="/logo.png" 
               alt="MarketingMesh Logo" 
               width={32} 
               height={32}

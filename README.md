@@ -2,7 +2,7 @@
 
 MarketingMesh is an end-to-end AI marketing solution that leverages swarm intelligence to analyze websites, create virtual focus groups, develop targeted marketing campaigns, and execute them across platforms—all with minimal human intervention.
 
-![MarketingMesh](/public/MM.png)
+![MarketingMesh](/public/logo.png)
 
 ## Color Scheme
 

@@ -18,6 +18,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "MarketingMesh - AI-Powered Marketing",
   description: "End-to-end AI marketing solution leveraging swarm intelligence",
+  icons: {
+    icon: "/logo.png",
+  },
 };
 
 export default function RootLayout({

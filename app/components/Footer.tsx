@@ -25,7 +25,7 @@ export default function Footer() {
               textDecoration: 'none' 
             }}>
               <Image 
-                src="/MM.png" 
+                src="/logo.png" 
                 alt="MarketingMesh Logo" 
                 width={40} 
                 height={40} 
