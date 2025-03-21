@@ -145,14 +145,18 @@ export default function MeshPage() {
         transition: 'all 0.3s',
         display: 'flex',
         flexDirection: 'column',
-        width: sidebarOpen ? '16rem' : '5rem'
+        width: sidebarOpen ? '16rem' : '5rem',
+        height: '100vh', // Ensure full height
+        position: 'relative' // Add relative positioning
       }}>
         <div style={{
           padding: '1rem',
           borderBottom: '1px solid rgba(255,255,255,0.15)',
           display: 'flex',
           alignItems: 'center',
-          justifyContent: 'space-between'
+          justifyContent: 'space-between',
+          backgroundColor: '#111111', // Ensure background color
+          zIndex: 10 // Ensure it stays on top
         }}>
           <div style={{
             display: 'flex',
@@ -219,7 +223,8 @@ export default function MeshPage() {
         <div style={{
           flex: 1,
           overflowY: 'auto',
-          padding: '1rem 0.5rem'
+          padding: '1rem 0.5rem',
+          height: 'calc(100vh - 136px)' // Subtract header and footer heights
         }}>
           <nav style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>
             {[
@@ -290,7 +295,12 @@ export default function MeshPage() {
         
         <div style={{
           padding: '1rem',
-          borderTop: '1px solid rgba(255,255,255,0.15)'
+          borderTop: '1px solid rgba(255,255,255,0.15)',
+          backgroundColor: '#111111', // Ensure background color
+          position: 'absolute',
+          bottom: 0,
+          width: '100%',
+          zIndex: 10 // Ensure it stays on top
         }}>
           <div style={{
             display: 'flex',
@@ -446,11 +456,15 @@ export default function MeshPage() {
         width: '24rem',
         display: 'flex',
         flexDirection: 'column',
-        backgroundColor: '#111111'
+        backgroundColor: '#111111',
+        height: '100vh', // Ensure full height
+        position: 'relative' // Add relative positioning
       }}>
         <header style={{
           padding: '1rem',
-          borderBottom: '1px solid rgba(255,255,255,0.15)'
+          borderBottom: '1px solid rgba(255,255,255,0.15)',
+          backgroundColor: '#111111', // Ensure background color
+          zIndex: 10 // Ensure it stays on top
         }}>
           <h2 style={{
             fontSize: '1.125rem',
@@ -466,7 +480,9 @@ export default function MeshPage() {
           padding: '1rem',
           display: 'flex',
           flexDirection: 'column',
-          gap: '1rem'
+          gap: '1rem',
+          height: 'calc(100vh - 120px)', // Subtract header and input area heights
+          paddingBottom: '60px' // Add padding to ensure messages aren't hidden behind input
         }}>
           {messages.map((message, index) => (
             <div 
@@ -604,7 +620,12 @@ export default function MeshPage() {
         {/* Input area */}
         <div style={{
           borderTop: '1px solid rgba(255,255,255,0.15)',
-          padding: '0.75rem'
+          padding: '0.75rem',
+          backgroundColor: '#111111', // Ensure background color
+          position: 'absolute',
+          bottom: 0,
+          width: '100%',
+          zIndex: 10 // Ensure it stays on top
         }}>
           <form onSubmit={handleSendMessage} style={{
             display: 'flex',
