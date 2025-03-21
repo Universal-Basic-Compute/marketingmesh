@@ -195,7 +195,7 @@ export default function Home() {
               </p>
             </div>
             
-            <div className="bg-card p-8 rounded-2xl shadow-sm border border-[hsl(var(--border))] hover:shadow-md transition-shadow group card-hover">
+            <div className="bg-[#111111] p-8 rounded-2xl shadow-sm border border-[rgba(255,255,255,0.15)] hover:shadow-md transition-shadow group card-hover">
               <div className="w-14 h-14 rounded-xl bg-[rgba(233,78,135,0.1)] flex items-center justify-center mb-6 group-hover:bg-[rgba(233,78,135,0.2)] transition-colors">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-secondary">
                   <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
@@ -210,7 +210,7 @@ export default function Home() {
               </p>
             </div>
             
-            <div className="bg-card p-8 rounded-2xl shadow-sm border border-[hsl(var(--border))] hover:shadow-md transition-shadow group card-hover">
+            <div className="bg-[#111111] p-8 rounded-2xl shadow-sm border border-[rgba(255,255,255,0.15)] hover:shadow-md transition-shadow group card-hover">
               <div className="w-14 h-14 rounded-xl bg-[rgba(245,167,108,0.1)] flex items-center justify-center mb-6 group-hover:bg-[rgba(245,167,108,0.2)] transition-colors">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-accent">
                   <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
@@ -222,7 +222,7 @@ export default function Home() {
               </p>
             </div>
             
-            <div className="bg-card p-8 rounded-2xl shadow-sm border border-[hsl(var(--border))] hover:shadow-md transition-shadow group card-hover">
+            <div className="bg-[#111111] p-8 rounded-2xl shadow-sm border border-[rgba(255,255,255,0.15)] hover:shadow-md transition-shadow group card-hover">
               <div className="w-14 h-14 rounded-xl bg-[rgba(61,213,200,0.1)] flex items-center justify-center mb-6 group-hover:bg-[rgba(61,213,200,0.2)] transition-colors">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-primary">
                   <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
@@ -462,7 +462,7 @@ export default function Home() {
               </div>
             </div>
             
-            <div className="bg-card p-8 rounded-2xl shadow-sm border border-[hsl(var(--border))]">
+            <div className="bg-[#111111] p-8 rounded-2xl shadow-sm border border-[rgba(255,255,255,0.15)]">
               <div className="flex items-center gap-1 text-yellow-400 mb-6">
                 {[1, 2, 3, 4, 5].map((star) => (
                   <svg key={star} xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
@@ -484,7 +484,7 @@ export default function Home() {
               </div>
             </div>
             
-            <div className="bg-card p-8 rounded-2xl shadow-sm border border-[hsl(var(--border))]">
+            <div className="bg-[#111111] p-8 rounded-2xl shadow-sm border border-[rgba(255,255,255,0.15)]">
               <div className="flex items-center gap-1 text-yellow-400 mb-6">
                 {[1, 2, 3, 4, 5].map((star) => (
                   <svg key={star} xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
