@@ -20,6 +20,8 @@ export default function MeshPage() {
   const [isLoading, setIsLoading] = useState(false);
   const [fileContent, setFileContent] = useState('# Welcome to MarketingMesh\n\nSelect a step from the sidebar to begin your marketing journey.');
   const messagesEndRef = useRef<HTMLDivElement>(null);
+  const [ttsEnabled, setTtsEnabled] = useState(false);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
   
   // Redirect if not authenticated
   useEffect(() => {
@@ -52,6 +54,53 @@ export default function MeshPage() {
       messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
     }
   }, [messages]);
+  
+  // Clean up audio when component unmounts
+  useEffect(() => {
+    return () => {
+      if (audioRef.current) {
+        audioRef.current.pause();
+        URL.revokeObjectURL(audioRef.current.src);
+      }
+    };
+  }, []);
+  
+  // Function to play text using TTS
+  const playTextToSpeech = async (text: string) => {
+    if (!ttsEnabled) return;
+    
+    try {
+      const response = await fetch('/api/kinos/tts', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ text }),
+      });
+      
+      if (!response.ok) {
+        throw new Error(`TTS request failed with status ${response.status}`);
+      }
+      
+      const blob = await response.blob();
+      const url = URL.createObjectURL(blob);
+      
+      // If there's an existing audio element, clean it up
+      if (audioRef.current) {
+        audioRef.current.pause();
+        URL.revokeObjectURL(audioRef.current.src);
+      }
+      
+      // Create a new audio element
+      const audio = new Audio(url);
+      audioRef.current = audio;
+      
+      // Play the audio
+      audio.play();
+    } catch (error) {
+      console.error('Error playing TTS:', error);
+    }
+  };
   
   const handleSendMessage = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -91,6 +140,11 @@ export default function MeshPage() {
       };
       
       setMessages(prev => [...prev, aiResponse]);
+      
+      // Play the AI response using TTS
+      if (ttsEnabled) {
+        playTextToSpeech(data.response);
+      }
       
       // Set content based on active step and AI response
       // You might want to modify this to extract specific information from the AI response
@@ -525,8 +579,11 @@ export default function MeshPage() {
         <header style={{
           padding: '1rem',
           borderBottom: '1px solid rgba(255,255,255,0.15)',
-          backgroundColor: '#111111', // Ensure background color
-          zIndex: 10 // Ensure it stays on top
+          backgroundColor: '#111111',
+          zIndex: 10,
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center'
         }}>
           <h2 style={{
             fontSize: '1.125rem',
@@ -534,6 +591,34 @@ export default function MeshPage() {
             color: 'white',
             margin: 0
           }}>AI Assistant</h2>
+          
+          {/* TTS Toggle Button */}
+          <button
+            onClick={() => setTtsEnabled(!ttsEnabled)}
+            style={{
+              backgroundColor: ttsEnabled ? 'rgba(61, 213, 200, 0.2)' : 'transparent',
+              border: '1px solid rgba(255,255,255,0.15)',
+              borderRadius: '0.375rem',
+              padding: '0.375rem',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              cursor: 'pointer',
+              transition: 'all 0.2s',
+              color: ttsEnabled ? '#3dd5c8' : 'white'
+            }}
+            title={ttsEnabled ? "Disable text-to-speech" : "Enable text-to-speech"}
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M11 5L6 9H2v6h4l5 4V5z"></path>
+              {ttsEnabled && (
+                <>
+                  <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                  <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+                </>
+              )}
+            </svg>
+          </button>
         </header>
         
         <div style={{
