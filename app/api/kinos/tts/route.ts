@@ -25,13 +25,19 @@ export async function POST(request: Request) {
     
     // Limit text length to prevent large requests
     const truncatedText = text.length > 1000 ? text.substring(0, 1000) + '...' : text;
-    
+      
+    // Add a timeout to the fetch request
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 60000); // 60 second timeout
+      
     try {
       // Send the text to be converted to speech
       const audioBlob = await textToSpeech(truncatedText, {
         voiceId,
         model
       });
+      
+      clearTimeout(timeoutId);
       
       // Create a response with the audio blob
       const response = new NextResponse(audioBlob);

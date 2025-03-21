@@ -88,7 +88,7 @@ export default function MeshPage() {
           
           // Add a timeout to the fetch request
           const controller = new AbortController();
-          const timeoutId = setTimeout(() => controller.abort(), 10000); // 10 second timeout
+          const timeoutId = setTimeout(() => controller.abort(), 60000); // 60 second timeout
           
           // Make the API request
           const response = await fetch(url, {
@@ -152,7 +152,7 @@ export default function MeshPage() {
       
       // Add a timeout to the fetch request
       const controller = new AbortController();
-      const timeoutId = setTimeout(() => controller.abort(), 10000); // 10 second timeout
+      const timeoutId = setTimeout(() => controller.abort(), 120000); // 120 second timeout for message processing
       
       const response = await fetch('/api/kinos/tts', {
         method: 'POST',
