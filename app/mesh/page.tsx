@@ -343,7 +343,11 @@ export default function MeshPage() {
               {session?.user?.email?.charAt(0).toUpperCase() || 'U'}
             </div>
             {sidebarOpen && (
-              <div style={{ marginLeft: '0.75rem' }}>
+              <div style={{ 
+                marginLeft: '0.75rem',
+                maxWidth: 'calc(100% - 3rem)', 
+                overflow: 'hidden'
+              }}>
                 <p style={{
                   fontSize: '0.875rem',
                   fontWeight: '500',
@@ -351,8 +355,7 @@ export default function MeshPage() {
                   margin: 0,
                   whiteSpace: 'nowrap',
                   overflow: 'hidden',
-                  textOverflow: 'ellipsis',
-                  maxWidth: '10rem'
+                  textOverflow: 'ellipsis'
                 }}>
                   {session?.user?.email || 'User'}
                 </p>
@@ -651,7 +654,8 @@ export default function MeshPage() {
           position: 'absolute',
           bottom: 0,
           width: '100%',
-          zIndex: 10 // Ensure it stays on top
+          zIndex: 10, // Ensure it stays on top
+          boxSizing: 'border-box' // Include padding in width calculation
         }}>
           <form onSubmit={handleSendMessage} style={{
             display: 'flex',
@@ -670,7 +674,8 @@ export default function MeshPage() {
                 padding: '0.5rem 0.75rem',
                 color: 'white',
                 fontSize: '0.875rem',
-                outline: 'none'
+                outline: 'none',
+                minWidth: 0 // Allow flex item to shrink below content size
               }}
               disabled={isLoading}
             />
@@ -684,7 +689,8 @@ export default function MeshPage() {
                 color: 'white',
                 border: 'none',
                 cursor: !inputMessage.trim() || isLoading ? 'not-allowed' : 'pointer',
-                opacity: !inputMessage.trim() || isLoading ? 0.5 : 1
+                opacity: !inputMessage.trim() || isLoading ? 0.5 : 1,
+                flexShrink: 0 // Prevent button from shrinking
               }}
             >
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
