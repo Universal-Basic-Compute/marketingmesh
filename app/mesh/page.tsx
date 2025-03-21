@@ -28,9 +28,13 @@ export default function MeshPage() {
     }
   }, [status, router]);
   
-  // Auto-scroll to bottom of messages
+  // Auto-scroll to bottom of messages only when a new user or AI message is added
   useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+    // Only scroll if the last message is from user or assistant (not system)
+    const lastMessage = messages[messages.length - 1];
+    if (lastMessage && (lastMessage.role === 'user' || lastMessage.role === 'assistant')) {
+      messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+    }
   }, [messages]);
   
   const handleSendMessage = async (e: React.FormEvent) => {
@@ -105,8 +109,12 @@ export default function MeshPage() {
         initialContent = '# Welcome to MarketingMesh\n\nSelect a step from the sidebar to begin your marketing journey.';
     }
     
+    // Set messages without triggering auto-scroll
     setMessages([systemMessage, assistantMessage]);
     setFileContent(initialContent);
+    
+    // Prevent auto-scrolling by temporarily removing the ref
+    messagesEndRef.current = null;
   };
   
   if (status === 'loading') {
