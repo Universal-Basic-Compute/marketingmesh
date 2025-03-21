@@ -46,11 +46,8 @@ export default function Header() {
         <nav style={{ 
           display: 'flex', 
           alignItems: 'center', 
-          gap: '2rem',
-          '@media (max-width: 768px)': {
-            display: 'none'
-          }
-        }}>
+          gap: '2rem'
+        }} className="hidden md:flex">
           <Link href="/features" style={{ color: 'rgba(255,255,255,0.8)', textDecoration: 'none', fontWeight: 500, transition: 'color 0.2s' }} onMouseOver={(e) => e.currentTarget.style.color = '#3dd5c8'} onMouseOut={(e) => e.currentTarget.style.color = 'rgba(255,255,255,0.8)'}>
             Features
           </Link>
